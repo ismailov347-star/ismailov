@@ -56,13 +56,9 @@ export default function Page() {
       {/* Диалоговый текст + галереи */}
       <section className="mx-auto max-w-screen-md px-4 sm:px-6 space-y-6 sm:space-y-8 pb-6 sm:pb-8">
         {[
-          ["Ты наверняка видел мои «текстовые» Reels в ленте.", (
-            <div className="rounded-xl sm:rounded-2xl p-4 sm:p-6 ring-1 shadow-soft hover:shadow-glow transition-all duration-500 hover:ring-accent/30 bg-gradient-to-br from-gray-500/10 via-slate-400/5 to-gray-600/15 ring-amber-500/10 backdrop-blur-sm border border-amber-500/5">
-              <pre className="whitespace-pre-wrap text-subtle/90 leading-relaxed text-base sm:text-lg drop-shadow-[0_0_4px_rgba(139,92,246,0.2)] text-left">{`И, скорее всего, у тебя возникал вопрос: «Как у него это работает?»
+          ["Ты наверняка видел мои «текстовые» Reels в ленте.", `И, скорее всего, у тебя возникал вопрос: «Как у него это работает?»
 
-Давай разберёмся вместе.`}</pre>
-            </div>
-          )],
+Давай разберёмся вместе.`],
           ["Чтобы зритель не просто посмотрел твоё видео, а захотел подписаться, нужно решить 3 ключевые проблемы:", ``],
           ["1. Проблема незаметности", (
             <div>
@@ -184,82 +180,31 @@ export default function Page() {
               <h4 className="text-lg md:text-xl font-semibold text-white mb-3">
                 Формат:
               </h4>
-              <div className="flex items-start gap-3 mb-4">
-                <div className="flex-shrink-0 w-8 h-8 bg-gradient-to-br from-purple-500/20 to-cyan-500/20 rounded-lg flex items-center justify-center border border-purple-400/30 backdrop-blur-sm">
-                  <svg className="w-4 h-4 text-cyan-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z" />
-                  </svg>
-                </div>
-                <p className="flex-1">
-                  5–7 секунд простого видео (идёте, пьёте кофе, смотрите в окно — да что угодно)
-                </p>
-              </div>
-              <div className="flex items-start gap-3 mb-4">
-                <div className="flex-shrink-0 w-8 h-8 bg-gradient-to-br from-purple-500/20 to-cyan-500/20 rounded-lg flex items-center justify-center border border-purple-400/30 backdrop-blur-sm">
-                  <svg className="w-4 h-4 text-yellow-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 4V2a1 1 0 011-1h8a1 1 0 011 1v2m0 0V3a1 1 0 011 1v10.586l-2-2V4H8v8.586l-2 2V4a1 1 0 011-1V2z" />
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 8h16M4 16h16" />
-                  </svg>
-                </div>
-                <p className="flex-1">
-                  Крупный, цепляющий заголовок поверх видео
-                </p>
-              </div>
-              <div className="flex items-start gap-3 mb-6">
-                <div className="flex-shrink-0 w-8 h-8 bg-gradient-to-br from-purple-500/20 to-cyan-500/20 rounded-lg flex items-center justify-center border border-purple-400/30 backdrop-blur-sm">
-                  <svg className="w-4 h-4 text-green-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
-                  </svg>
-                </div>
-                <p className="flex-1">
-                  Глубокая подпись с раскрытием темы заголовка
-                </p>
-              </div>
+              <p className="mb-4">
+                5–7 секунд простого видео (идёте, пьёте кофе, смотрите в окно — да что угодно)
+              </p>
+              <p className="mb-4">
+                Крупный, цепляющий заголовок поверх видео
+              </p>
+              <p className="mb-6">
+                Глубокая подпись с раскрытием темы заголовка
+              </p>
               
               <h4 className="text-lg md:text-xl font-semibold text-white mb-3">
                 Особенности:
               </h4>
-              <div className="flex items-start gap-3 mb-4">
-                <div className="flex-shrink-0 w-8 h-8 bg-gradient-to-br from-purple-500/20 to-cyan-500/20 rounded-lg flex items-center justify-center border border-purple-400/30 backdrop-blur-sm">
-                  <svg className="w-4 h-4 text-red-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
-                  </svg>
-                </div>
-                <p className="flex-1">
-                  Текст поверх фонового видео привлекает внимание с первых секунд
-                </p>
-              </div>
-              <div className="flex items-start gap-3 mb-4">
-                <div className="flex-shrink-0 w-8 h-8 bg-gradient-to-br from-purple-500/20 to-cyan-500/20 rounded-lg flex items-center justify-center border border-purple-400/30 backdrop-blur-sm">
-                  <svg className="w-4 h-4 text-blue-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
-                  </svg>
-                </div>
-                <p className="flex-1">
-                  Видео повторяется, пока зритель читает подпись — это увеличивает досмотр
-                </p>
-              </div>
-              <div className="flex items-start gap-3 mb-4">
-                <div className="flex-shrink-0 w-8 h-8 bg-gradient-to-br from-purple-500/20 to-cyan-500/20 rounded-lg flex items-center justify-center border border-purple-400/30 backdrop-blur-sm">
-                  <svg className="w-4 h-4 text-purple-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M18.364 18.364A9 9 0 005.636 5.636m12.728 12.728L5.636 5.636m12.728 12.728L18 18M5.636 5.636L6 6" />
-                  </svg>
-                </div>
-                <p className="flex-1">
-                  Фон может быть любым, при этом говорить на камеру необязательно
-                </p>
-              </div>
-              <div className="flex items-start gap-3 mb-6">
-                <div className="flex-shrink-0 w-8 h-8 bg-gradient-to-br from-purple-500/20 to-cyan-500/20 rounded-lg flex items-center justify-center border border-purple-400/30 backdrop-blur-sm">
-                  <svg className="w-4 h-4 text-green-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
-                  </svg>
-                </div>
-                <p className="flex-1">
-                  Создаются быстро, без сложного монтажа
-                </p>
-              </div>
+              <p className="mb-4">
+                Текст поверх фонового видео привлекает внимание с первых секунд
+              </p>
+              <p className="mb-4">
+                Видео повторяется, пока зритель читает подпись — это увеличивает досмотр
+              </p>
+              <p className="mb-4">
+                Фон может быть любым, при этом говорить на камеру необязательно
+              </p>
+              <p className="mb-6">
+                Создаются быстро, без сложного монтажа
+              </p>
               
               <h3 className="text-xl md:text-2xl font-bold text-white mb-4 drop-shadow-[0_0_8px_rgba(139,92,246,0.5)]">
                 Карусели
@@ -272,70 +217,28 @@ export default function Page() {
               <h4 className="text-lg md:text-xl font-semibold text-white mb-3">
                 Формат:
               </h4>
-              <div className="flex items-start gap-3 mb-4">
-                <div className="flex-shrink-0 w-8 h-8 bg-gradient-to-br from-purple-500/20 to-cyan-500/20 rounded-lg flex items-center justify-center border border-purple-400/30 backdrop-blur-sm">
-                  <svg className="w-4 h-4 text-orange-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
-                  </svg>
-                </div>
-                <p className="flex-1">
-                  до 20 слайдов — всё зависит от объёма мысли
-                </p>
-              </div>
-              <div className="flex items-start gap-3 mb-4">
-                <div className="flex-shrink-0 w-8 h-8 bg-gradient-to-br from-purple-500/20 to-cyan-500/20 rounded-lg flex items-center justify-center border border-purple-400/30 backdrop-blur-sm">
-                  <svg className="w-4 h-4 text-pink-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15.536 8.464a5 5 0 010 7.072m2.828-9.9a9 9 0 010 12.728M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z" />
-                  </svg>
-                </div>
-                <p className="flex-1">
-                  Можно добавить фоновое аудио — и Instagram будет продвигать карусель наравне с Reels
-                </p>
-              </div>
-              <div className="flex items-start gap-3 mb-4">
-                <div className="flex-shrink-0 w-8 h-8 bg-gradient-to-br from-purple-500/20 to-cyan-500/20 rounded-lg flex items-center justify-center border border-purple-400/30 backdrop-blur-sm">
-                  <svg className="w-4 h-4 text-indigo-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
-                  </svg>
-                </div>
-                <p className="flex-1">
-                  Каждый слайд — это кадр с текстом или изображением
-                </p>
-              </div>
-              <div className="flex items-start gap-3 mb-6">
-                <div className="flex-shrink-0 w-8 h-8 bg-gradient-to-br from-purple-500/20 to-cyan-500/20 rounded-lg flex items-center justify-center border border-purple-400/30 backdrop-blur-sm">
-                  <svg className="w-4 h-4 text-teal-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" />
-                  </svg>
-                </div>
-                <p className="flex-1">
-                  Первый слайд задаёт тему и вовлекает в просмотр, но не обязательно с крупным текстом
-                </p>
-              </div>
+              <p className="mb-4">
+                до 20 слайдов — всё зависит от объёма мысли
+              </p>
+              <p className="mb-4">
+                Можно добавить фоновое аудио — и Instagram будет продвигать карусель наравне с Reels
+              </p>
+              <p className="mb-4">
+                Каждый слайд — это кадр с текстом или изображением
+              </p>
+              <p className="mb-6">
+                Первый слайд задаёт тему и вовлекает в просмотр, но не обязательно с крупным текстом
+              </p>
               
               <h4 className="text-lg md:text-xl font-semibold text-white mb-3">
                 Особенности:
               </h4>
-              <div className="flex items-start gap-3 mb-4">
-                <div className="flex-shrink-0 w-8 h-8 bg-gradient-to-br from-purple-500/20 to-cyan-500/20 rounded-lg flex items-center justify-center border border-purple-400/30 backdrop-blur-sm">
-                  <svg className="w-4 h-4 text-amber-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
-                  </svg>
-                </div>
-                <p className="flex-1">
-                  Можно использовать до 20 слайдов для раскрытия темы
-                </p>
-              </div>
-              <div className="flex items-start gap-3 mb-6">
-                <div className="flex-shrink-0 w-8 h-8 bg-gradient-to-br from-purple-500/20 to-cyan-500/20 rounded-lg flex items-center justify-center border border-purple-400/30 backdrop-blur-sm">
-                  <svg className="w-4 h-4 text-emerald-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M9 19l3 3m0 0l3-3m-3 3V10" />
-                  </svg>
-                </div>
-                <p className="flex-1">
-                  Фоны, иллюстрации или изображения — листание вовлекает и удерживает внимание
-                </p>
-              </div>
+              <p className="mb-4">
+                Можно использовать до 20 слайдов для раскрытия темы
+              </p>
+              <p className="mb-6">
+                Фоны, иллюстрации или изображения — листание вовлекает и удерживает внимание
+              </p>
             </div>
           )],
         ].map(([title, body], i) => (
@@ -343,7 +246,7 @@ export default function Page() {
              <div className={`rounded-xl sm:rounded-2xl p-4 sm:p-6 ring-1 shadow-soft hover:shadow-glow transition-all duration-500 hover:ring-accent/30 ${
                 [0, 1, 2, 3, 4, 5].includes(i)
                   ? 'bg-gradient-to-br from-gray-500/10 via-slate-400/5 to-gray-600/15 ring-amber-500/10 backdrop-blur-sm border border-amber-500/5'
-                  : 'bg-gradient-to-br from-gray-500/10 via-slate-400/5 to-gray-600/15 ring-amber-500/10 backdrop-blur-sm border border-amber-500/5 hover:bg-gray-500/15'
+                  : 'bg-gradient-to-br from-gray-500/10 via-slate-400/5 to-gray-600/15 ring-white/10 backdrop-blur-sm border border-white/5 hover:bg-gray-500/15'
               }`}>
                <h3 className={`font-semibold mb-2 sm:mb-3 ${
                  [0, 1, 2, 3, 4, 5].includes(i)

@@ -56,13 +56,9 @@ export default function Page() {
       {/* Диалоговый текст + галереи */}
       <section className="mx-auto max-w-screen-md px-4 sm:px-6 space-y-6 sm:space-y-8 pb-6 sm:pb-8">
         {[
-          ["Ты наверняка видел мои «текстовые» Reels в ленте.", (
-            <div className="rounded-xl sm:rounded-2xl p-4 sm:p-6 ring-1 shadow-soft hover:shadow-glow transition-all duration-500 hover:ring-accent/30 bg-gradient-to-br from-gray-500/10 via-slate-400/5 to-gray-600/15 ring-amber-500/10 backdrop-blur-sm border border-amber-500/5">
-              <pre className="whitespace-pre-wrap text-subtle/90 leading-relaxed text-base sm:text-lg drop-shadow-[0_0_4px_rgba(139,92,246,0.2)] text-left">{`И, скорее всего, у тебя возникал вопрос: «Как у него это работает?»
+          ["Ты наверняка видел мои «текстовые» Reels в ленте.", `И, скорее всего, у тебя возникал вопрос: «Как у него это работает?»
 
-Давай разберёмся вместе.`}</pre>
-            </div>
-          )],
+Давай разберёмся вместе.`],
           ["Чтобы зритель не просто посмотрел твоё видео, а захотел подписаться, нужно решить 3 ключевые проблемы:", ``],
           ["1. Проблема незаметности", (
             <div>
@@ -343,7 +339,7 @@ export default function Page() {
              <div className={`rounded-xl sm:rounded-2xl p-4 sm:p-6 ring-1 shadow-soft hover:shadow-glow transition-all duration-500 hover:ring-accent/30 ${
                 [0, 1, 2, 3, 4, 5].includes(i)
                   ? 'bg-gradient-to-br from-gray-500/10 via-slate-400/5 to-gray-600/15 ring-amber-500/10 backdrop-blur-sm border border-amber-500/5'
-                  : 'bg-gradient-to-br from-gray-500/10 via-slate-400/5 to-gray-600/15 ring-amber-500/10 backdrop-blur-sm border border-amber-500/5 hover:bg-gray-500/15'
+                  : 'bg-gradient-to-br from-gray-500/10 via-slate-400/5 to-gray-600/15 ring-white/10 backdrop-blur-sm border border-white/5 hover:bg-gray-500/15'
               }`}>
                <h3 className={`font-semibold mb-2 sm:mb-3 ${
                  [0, 1, 2, 3, 4, 5].includes(i)

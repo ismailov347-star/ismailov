@@ -1,0 +1,18 @@
+<svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="arrowGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#10B981;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#059669;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  <circle cx="20" cy="20" r="14" fill="url(#arrowGrad)" stroke="#34D399" stroke-width="1.5"/>
+  <path d="M20 12L20 28" stroke="white" stroke-width="3" stroke-linecap="round">
+    <animateTransform attributeName="transform" attributeType="XML" type="translate" values="0 2;0 -2;0 2" dur="1.5s" repeatCount="indefinite"/>
+  </path>
+  <path d="M14 18L20 12L26 18" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+    <animateTransform attributeName="transform" attributeType="XML" type="translate" values="0 2;0 -2;0 2" dur="1.5s" repeatCount="indefinite"/>
+  </path>
+  <circle cx="20" cy="30" r="1.5" fill="#FDE047" opacity="0.8">
+    <animate attributeName="opacity" values="0.3;1;0.3" dur="1s" repeatCount="indefinite"/>
+  </circle>
+</svg>

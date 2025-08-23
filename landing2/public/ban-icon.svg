@@ -1,0 +1,14 @@
+<svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="banGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#EF4444;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#DC2626;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  <circle cx="20" cy="20" r="14" fill="url(#banGrad)" stroke="#F87171" stroke-width="1.5"/>
+  <path d="M10 10L30 30" stroke="white" stroke-width="4" stroke-linecap="round">
+    <animate attributeName="opacity" values="0.7;1;0.7" dur="1.5s" repeatCount="indefinite"/>
+  </path>
+  <circle cx="20" cy="20" r="8" fill="none" stroke="white" stroke-width="2" opacity="0.6"/>
+  <path d="M16 16L24 24M24 16L16 24" stroke="white" stroke-width="2" stroke-linecap="round" opacity="0.8"/>
+</svg>
