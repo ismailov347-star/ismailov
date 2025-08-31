@@ -122,15 +122,17 @@ function LiquidButton({
             ...(children as React.ReactElement).props.style
           },
           onMouseEnter: (e: React.MouseEvent) => {
-            e.currentTarget.style.transform = 'scale(1.05) translateY(-2px)';
-            e.currentTarget.style.boxShadow = '0 16px 48px rgba(147, 51, 234, 0.4), 0 8px 24px rgba(37, 99, 235, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.3), inset 0 -1px 0 rgba(0, 0, 0, 0.1)';
-            e.currentTarget.style.background = 'linear-gradient(135deg, #a855f7 0%, #3b82f6 50%, #0891b2 100%)';
+            const target = e.currentTarget as HTMLElement;
+            target.style.transform = 'scale(1.05) translateY(-2px)';
+            target.style.boxShadow = '0 16px 48px rgba(147, 51, 234, 0.4), 0 8px 24px rgba(37, 99, 235, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.3), inset 0 -1px 0 rgba(0, 0, 0, 0.1)';
+            target.style.background = 'linear-gradient(135deg, #a855f7 0%, #3b82f6 50%, #0891b2 100%)';
             (children as React.ReactElement).props.onMouseEnter?.(e);
           },
           onMouseLeave: (e: React.MouseEvent) => {
-            e.currentTarget.style.transform = 'scale(1) translateY(0)';
-            e.currentTarget.style.boxShadow = '0 8px 32px rgba(147, 51, 234, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.2), inset 0 -1px 0 rgba(0, 0, 0, 0.1)';
-            e.currentTarget.style.background = 'linear-gradient(135deg, #9333ea 0%, #2563eb 50%, #06b6d4 100%)';
+            const target = e.currentTarget as HTMLElement;
+            target.style.transform = 'scale(1) translateY(0)';
+            target.style.boxShadow = '0 8px 32px rgba(147, 51, 234, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.2), inset 0 -1px 0 rgba(0, 0, 0, 0.1)';
+            target.style.background = 'linear-gradient(135deg, #9333ea 0%, #2563eb 50%, #06b6d4 100%)';
             (children as React.ReactElement).props.onMouseLeave?.(e);
           }
         })}

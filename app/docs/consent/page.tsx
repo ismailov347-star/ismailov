@@ -73,7 +73,7 @@ export default function ConsentPage() {
                   </p>
                   
                   <p className="text-white/90">
-                    2.2. Я согласен(на) квалифицировать в качестве простой электронной подписи под настоящим Согласием и под Политикой в отношении обработки персональных данных Оператора выполнение мной одновременно следующих действий на сайте по адресу: <code className="text-amber-400 bg-gray-800 px-2 py-1 rounded">https://ismablog.com</code> (далее - Сайт):
+                    2.2. Я согласен(на) квалифицировать в качестве простой электронной подписи под настоящим Согласием и под Политикой в отношении обработки персональных данных Оператора выполнение мной одновременно следующих действий на сайте по адресу: <code className="text-amber-400 bg-gray-800 px-2 py-1 rounded">https://ismablog.ru</code> (далее - Сайт):
                   </p>
                   
                   <div className="pl-6 space-y-2">
@@ -95,11 +95,11 @@ export default function ConsentPage() {
                   <h2 className="text-xl font-semibold text-amber-400 mb-4">3. Ознакомление с документами</h2>
                   
                   <p className="text-white/90">
-                    3.1. Я ознакомлен с Политикой и Согласием путем посещения Сайта, размещенного по адресу: <code className="text-amber-400 bg-gray-800 px-2 py-1 rounded">https://ismablog.com.</code>
+                    3.1. Я ознакомлен с Политикой и Согласием путем посещения Сайта, размещенного по адресу: <code className="text-amber-400 bg-gray-800 px-2 py-1 rounded">https://ismablog.ru.</code>
                   </p>
                   
                   <p className="text-white/90">
-                    3.2. Я знаю, что Оператор обрабатывает персональные данные Пользователя только в случае их заполнения и (или) отправки Пользователем самостоятельно через специальные формы, расположенные на Сайте: <code className="text-amber-400 bg-gray-800 px-2 py-1 rounded">https://ismablog.com.</code>
+                    3.2. Я знаю, что Оператор обрабатывает персональные данные Пользователя только в случае их заполнения и (или) отправки Пользователем самостоятельно через специальные формы, расположенные на Сайте: <code className="text-amber-400 bg-gray-800 px-2 py-1 rounded">https://ismablog.ru.</code>
                   </p>
                 </div>
                 

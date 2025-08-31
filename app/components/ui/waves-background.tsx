@@ -14,20 +14,36 @@ interface WavesProps {
   tension?: number 
   maxCursorMove?: number 
   className?: string 
+}
+
+interface Point {
+  x: number;
+  y: number;
+  wave: { x: number; y: number };
+  cursor: { x: number; y: number; vx: number; vy: number };
 } 
 
 class Grad { 
-  constructor(x, y, z) { 
+  x: number;
+  y: number;
+  z: number;
+  
+  constructor(x: number, y: number, z: number) { 
     this.x = x 
     this.y = y 
     this.z = z 
   } 
-  dot2(x, y) { 
+  dot2(x: number, y: number): number { 
     return this.x * x + this.y * y 
   } 
 } 
 class Noise { 
-  constructor(seed = 0) { 
+  grad3: Grad[];
+  p: number[];
+  perm: number[];
+  gradP: Grad[];
+  
+  constructor(seed: number = 0) { 
     this.grad3 = [ 
       new Grad(1, 1, 0), 
       new Grad(-1, 1, 0), 
@@ -64,7 +80,7 @@ class Noise {
     this.gradP = new Array(512) 
     this.seed(seed) 
   } 
-  seed(seed) { 
+  seed(seed: number): void { 
     if (seed > 0 && seed < 1) seed *= 65536 
     seed = Math.floor(seed) 
     if (seed < 256) seed |= seed << 8 
@@ -74,13 +90,13 @@ class Noise {
       this.gradP[i] = this.gradP[i + 256] = this.grad3[v % 12] 
     } 
   } 
-  fade(t) { 
+  fade(t: number): number { 
     return t * t * t * (t * (t * 6 - 15) + 10) 
   } 
-  lerp(a, b, t) { 
+  lerp(a: number, b: number, t: number): number { 
     return (1 - t) * a + t * b 
   } 
-  perlin2(x, y) { 
+  perlin2(x: number, y: number): number { 
     let X = Math.floor(x), 
       Y = Math.floor(y) 
     x -= X 
@@ -114,12 +130,12 @@ export function Waves({
   maxCursorMove = 100, 
   className, 
 }: WavesProps) { 
-  const containerRef = useRef(null) 
-  const canvasRef = useRef(null) 
-  const ctxRef = useRef(null) 
+  const containerRef = useRef<HTMLDivElement>(null) 
+  const canvasRef = useRef<HTMLCanvasElement>(null) 
+  const ctxRef = useRef<CanvasRenderingContext2D | null>(null) 
   const boundingRef = useRef({ width: 0, height: 0, left: 0, top: 0 }) 
   const noiseRef = useRef(new Noise(Math.random())) 
-  const linesRef = useRef([]) 
+  const linesRef = useRef<Point[][]>([]) 
   const mouseRef = useRef({ 
     x: -10, 
     y: 0, 
@@ -144,6 +160,7 @@ export function Waves({
     ctxRef.current = canvas.getContext("2d");
 
     function setSize() {
+      if (!container || !canvas) return;
       boundingRef.current = container.getBoundingClientRect();
       canvas.width = boundingRef.current.width;
       canvas.height = boundingRef.current.height;
@@ -172,14 +189,14 @@ export function Waves({
       }
     }
 
-    let animationFrameId;
+    let animationFrameId: number;
 
-    function movePoints(time) {
+    function movePoints(time: number): void {
       const lines = linesRef.current;
       const mouse = mouseRef.current;
 
-      lines.forEach((line) => {
-        line.forEach((point) => {
+      lines.forEach((line: Point[]) => {
+        line.forEach((point: Point) => {
           const dx = mouse.x - point.x;
           const dy = mouse.y - point.y;
           const distance = Math.sqrt(dx * dx + dy * dy);
@@ -206,16 +223,18 @@ export function Waves({
       animationFrameId = requestAnimationFrame(movePoints);
     }
 
-    function drawLines() {
+    function drawLines(): void {
       const ctx = ctxRef.current;
       const lines = linesRef.current;
+
+      if (!ctx) return;
 
       ctx.clearRect(0, 0, boundingRef.current.width, boundingRef.current.height);
       ctx.strokeStyle = lineColor;
 
-      lines.forEach((line) => {
+      lines.forEach((line: Point[]) => {
         ctx.beginPath();
-        line.forEach((point, index) => {
+        line.forEach((point: Point, index: number) => {
           if (index === 0) {
             ctx.moveTo(point.x, point.y);
           } else {

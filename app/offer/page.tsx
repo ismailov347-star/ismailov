@@ -140,7 +140,7 @@ function AccordionItem({ question, answer, isOpen, onToggle }: {
       >
         <div className="flex items-center gap-3">
           <HelpCircleIcon className="w-5 h-5 text-amber-400 flex-shrink-0 transition-transform duration-200 group-hover:scale-105" />
-          <span className="text-lg font-semibold text-white pr-4">{question}</span>
+          <span className="text-subtle/90 leading-relaxed text-base sm:text-lg drop-shadow-[0_0_4px_rgba(139,92,246,0.2)] font-semibold pr-4">{question}</span>
         </div>
         <ChevronDownIcon className={`w-5 h-5 text-amber-400 flex-shrink-0 transition-all duration-300 group-hover:scale-105 ${
           isOpen ? 'rotate-180' : ''
@@ -265,7 +265,7 @@ export default function OfferPage() {
         </div>
 
         {/* Блок 1 */}
-        <div className="space-y-6 text-lg md:text-xl text-white/90 max-w-4xl mx-auto">
+        <div className="space-y-6 text-subtle/90 leading-relaxed text-base sm:text-lg drop-shadow-[0_0_4px_rgba(139,92,246,0.2)] max-w-4xl mx-auto">
           <div className="rounded-xl sm:rounded-2xl p-4 sm:p-6 ring-1 shadow-soft hover:shadow-glow transition-all duration-500 hover:ring-accent/30 bg-gradient-to-br from-gray-500/10 via-slate-400/5 to-gray-600/15 ring-amber-500/10 backdrop-blur-sm border border-amber-500/5">
             <div className="space-y-4 text-left">
               <div className="group flex items-start gap-3">
@@ -302,13 +302,13 @@ export default function OfferPage() {
         <div className="text-left">
           <LiquidButton asChild size="xl">
             <a href="#checkout">
-              Присоединиться сейчас — 1990 р.
+              Присоединиться сейчас
             </a>
           </LiquidButton>
         </div>
 
         {/* Блок 2 */}
-        <div className="space-y-6 text-lg md:text-xl text-white/90 max-w-4xl mx-auto">
+        <div className="space-y-6 text-subtle/90 leading-relaxed text-base sm:text-lg drop-shadow-[0_0_4px_rgba(139,92,246,0.2)] max-w-4xl mx-auto">
           <h3 className="text-xl sm:text-2xl md:text-3xl font-light bg-gradient-to-r from-amber-300 via-yellow-400 to-amber-400 bg-clip-text text-transparent animate-premium-fade-in text-center" style={{
             fontFamily: 'Inter, system-ui, sans-serif',
             fontWeight: '300',
@@ -332,7 +332,7 @@ export default function OfferPage() {
         </div>
 
         {/* Блок 3 */}
-        <div className="text-center space-y-6 text-lg md:text-xl text-white/90 max-w-4xl mx-auto">
+        <div className="text-center space-y-6 text-subtle/90 leading-relaxed text-base sm:text-lg drop-shadow-[0_0_4px_rgba(139,92,246,0.2)] max-w-4xl mx-auto">
           <h3 className="font-light font-inter text-3xl md:text-4xl bg-gradient-to-r from-amber-300 via-yellow-400 to-amber-500 bg-clip-text text-transparent animate-premium-fade-in tracking-wide text-shadow-[0_0_20px_rgba(251,191,36,0.8)] drop-shadow-[0_0_15px_rgba(251,191,36,0.6)]">
             Что такое Система Лёгкого Контента?
           </h3>
@@ -358,8 +358,8 @@ export default function OfferPage() {
             Что внутри?
           </h2>
           
-          {/* Модуль 1 */}
-          <h3 className="font-light font-inter text-xl md:text-2xl bg-gradient-to-r from-amber-300 via-yellow-400 to-amber-500 bg-clip-text text-transparent animate-premium-fade-in tracking-wide text-shadow-[0_0_20px_rgba(251,191,36,0.8)] drop-shadow-[0_0_15px_rgba(251,191,36,0.6)] text-left">Модуль 1. Суть текстовых Reels. «Формула захвата внимания»</h3>
+          {/* Урок 1 */}
+          <h3 className="font-light font-inter text-xl md:text-2xl bg-gradient-to-r from-amber-300 via-yellow-400 to-amber-500 bg-clip-text text-transparent animate-premium-fade-in tracking-wide text-shadow-[0_0_20px_rgba(251,191,36,0.8)] drop-shadow-[0_0_15px_rgba(251,191,36,0.6)] text-left">Урок 1. Суть текстовых Reels. «Формула захвата внимания»</h3>
           <div className="rounded-xl sm:rounded-2xl p-4 sm:p-6 ring-1 shadow-soft hover:shadow-glow transition-all duration-500 hover:ring-accent/30 bg-gradient-to-br from-gray-500/10 via-slate-400/5 to-gray-600/15 ring-amber-500/10 backdrop-blur-sm border border-amber-500/5">
             <div className="text-subtle/90 leading-relaxed text-base sm:text-lg drop-shadow-[0_0_4px_rgba(139,92,246,0.2)] text-left">
               <p className="mb-4">Ты узнаешь, как делать короткие ролики, которые не просто пролистывают — а читают, сохраняют и делятся.</p>
@@ -373,7 +373,7 @@ export default function OfferPage() {
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 13a3 3 0 11-6 0 3 3 0 016 0z" />
                   </svg>
                 </div>
-                <span className="text-white/90 group-hover:text-white transition-colors duration-300 flex-1">какую подложку снимать (и как)</span>
+                <span className="text-subtle/90 leading-relaxed text-base sm:text-lg drop-shadow-[0_0_4px_rgba(139,92,246,0.2)] group-hover:text-white transition-colors duration-300 flex-1">какую подложку снимать (и как)</span>
               </div>
               
               <div className="flex items-start gap-4 group mb-4">
@@ -382,7 +382,7 @@ export default function OfferPage() {
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h7" />
                   </svg>
                 </div>
-                <span className="text-white/90 group-hover:text-white transition-colors duration-300 flex-1">как оформить текст, чтобы его дочитывали</span>
+                <span className="text-subtle/90 leading-relaxed text-base sm:text-lg drop-shadow-[0_0_4px_rgba(139,92,246,0.2)] group-hover:text-white transition-colors duration-300 flex-1">как оформить текст, чтобы его дочитывали</span>
               </div>
               
               <div className="flex items-start gap-4 group mb-4">
@@ -391,7 +391,7 @@ export default function OfferPage() {
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 7h.01M7 3h5c.512 0 1.024.195 1.414.586l7 7a2 2 0 010 2.828l-7 7a2 2 0 01-2.828 0l-7-7A1.994 1.994 0 013 12V7a4 4 0 014-4z" />
                   </svg>
                 </div>
-                <span className="text-white/90 group-hover:text-white transition-colors duration-300 flex-1">как выбрать заголовок, который не даёт пролистнуть</span>
+                <span className="text-subtle/90 leading-relaxed text-base sm:text-lg drop-shadow-[0_0_4px_rgba(139,92,246,0.2)] group-hover:text-white transition-colors duration-300 flex-1">как выбрать заголовок, который не даёт пролистнуть</span>
               </div>
               
               <div className="flex items-start gap-4 group mb-4">
@@ -400,7 +400,7 @@ export default function OfferPage() {
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15.536 8.464a5 5 0 010 7.072m2.828-9.9a9 9 0 010 12.728M9 12a3 3 0 106 0v5a3 3 0 11-6 0V9z" />
                   </svg>
                 </div>
-                <span className="text-white/90 group-hover:text-white transition-colors duration-300 flex-1">как подобрать фоновое аудио</span>
+                <span className="text-subtle/90 leading-relaxed text-base sm:text-lg drop-shadow-[0_0_4px_rgba(139,92,246,0.2)] group-hover:text-white transition-colors duration-300 flex-1">как подобрать фоновое аудио</span>
               </div>
               
               <div className="flex items-start gap-4 group mb-4">
@@ -409,15 +409,15 @@ export default function OfferPage() {
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                   </svg>
                 </div>
-                <span className="text-white/90 group-hover:text-white transition-colors duration-300 flex-1">и главное — как весь этот формат работает изнутри и почему алгоритм его любит</span>
+                <span className="text-subtle/90 leading-relaxed text-base sm:text-lg drop-shadow-[0_0_4px_rgba(139,92,246,0.2)] group-hover:text-white transition-colors duration-300 flex-1">и главное — как весь этот формат работает изнутри и почему алгоритм его любит</span>
               </div>
               
               <p className="mt-4">Это не теория. Это тот самый метод, с которого начался рост моего блога.</p>
             </div>
           </div>
 
-          {/* Модуль 2 */}
-          <h3 className="font-light font-inter text-xl md:text-2xl bg-gradient-to-r from-amber-300 via-yellow-400 to-amber-500 bg-clip-text text-transparent animate-premium-fade-in tracking-wide text-shadow-[0_0_20px_rgba(251,191,36,0.8)] drop-shadow-[0_0_15px_rgba(251,191,36,0.6)] text-center">Модуль 2. Публикации-карусели. «Листай — не отпускай»</h3>
+          {/* Урок 2 */}
+          <h3 className="font-light font-inter text-xl md:text-2xl bg-gradient-to-r from-amber-300 via-yellow-400 to-amber-500 bg-clip-text text-transparent animate-premium-fade-in tracking-wide text-shadow-[0_0_20px_rgba(251,191,36,0.8)] drop-shadow-[0_0_15px_rgba(251,191,36,0.6)] text-center">Урок 2. Публикации-карусели. «Листай — не отпускай»</h3>
           <div className="rounded-xl sm:rounded-2xl p-4 sm:p-6 ring-1 shadow-soft hover:shadow-glow transition-all duration-500 hover:ring-accent/30 bg-gradient-to-br from-gray-500/10 via-slate-400/5 to-gray-600/15 ring-amber-500/10 backdrop-blur-sm border border-amber-500/5">
             <div className="text-subtle/90 leading-relaxed text-base sm:text-lg drop-shadow-[0_0_4px_rgba(139,92,246,0.2)] text-left">
               <p className="mb-4">Мы разберём:</p>
@@ -496,8 +496,8 @@ export default function OfferPage() {
             </div>
           </div>
 
-          {/* Модуль 3 */}
-          <h3 className="font-light font-inter text-xl md:text-2xl bg-gradient-to-r from-amber-300 via-yellow-400 to-amber-500 bg-clip-text text-transparent animate-premium-fade-in tracking-wide text-shadow-[0_0_20px_rgba(251,191,36,0.8)] drop-shadow-[0_0_15px_rgba(251,191,36,0.6)] text-center">Модуль 3. Чек-лист «Упаковка блога»</h3>
+          {/* Урок 3 */}
+          <h3 className="font-light font-inter text-xl md:text-2xl bg-gradient-to-r from-amber-300 via-yellow-400 to-amber-500 bg-clip-text text-transparent animate-premium-fade-in tracking-wide text-shadow-[0_0_20px_rgba(251,191,36,0.8)] drop-shadow-[0_0_15px_rgba(251,191,36,0.6)] text-center">Урок 3. Чек-лист «Упаковка блога»</h3>
           <div className="rounded-xl sm:rounded-2xl p-4 sm:p-6 ring-1 shadow-soft hover:shadow-glow transition-all duration-500 hover:ring-accent/30 bg-gradient-to-br from-gray-500/10 via-slate-400/5 to-gray-600/15 ring-amber-500/10 backdrop-blur-sm border border-amber-500/5">
             <div className="text-subtle/90 leading-relaxed text-base sm:text-lg drop-shadow-[0_0_4px_rgba(139,92,246,0.2)] text-left">
               <p className="mb-4">Люди могут перейти в твой профиль… и уйти. Даже если контент хороший.</p>
@@ -544,8 +544,8 @@ export default function OfferPage() {
             </div>
           </div>
 
-          {/* Модуль 4 */}
-          <h3 className="font-light font-inter text-xl md:text-2xl bg-gradient-to-r from-amber-300 via-yellow-400 to-amber-500 bg-clip-text text-transparent animate-premium-fade-in tracking-wide text-shadow-[0_0_20px_rgba(251,191,36,0.8)] drop-shadow-[0_0_15px_rgba(251,191,36,0.6)] text-center">Модуль 4. Система идей. «Контент-база без ступора»</h3>
+          {/* Урок 4 */}
+          <h3 className="font-light font-inter text-xl md:text-2xl bg-gradient-to-r from-amber-300 via-yellow-400 to-amber-500 bg-clip-text text-transparent animate-premium-fade-in tracking-wide text-shadow-[0_0_20px_rgba(251,191,36,0.8)] drop-shadow-[0_0_15px_rgba(251,191,36,0.6)] text-center">Урок 4. Система идей. «Контент-база без ступора»</h3>
           <div className="rounded-xl sm:rounded-2xl p-4 sm:p-6 ring-1 shadow-soft hover:shadow-glow transition-all duration-500 hover:ring-accent/30 bg-gradient-to-br from-gray-500/10 via-slate-400/5 to-gray-600/15 ring-amber-500/10 backdrop-blur-sm border border-amber-500/5">
             <div className="text-subtle/90 leading-relaxed text-base sm:text-lg drop-shadow-[0_0_4px_rgba(139,92,246,0.2)] text-left">
               <p className="mb-4">Если ты садился перед телефоном и думал: «О чём вообще писать сегодня?» — это для тебя.</p>
@@ -589,43 +589,6 @@ export default function OfferPage() {
               </div>
               
               <p className="mt-4">Это не шаблоны. Это система, в которую ты просто подставляешь свои смыслы — и получаешь пост.</p>
-            </div>
-          </div>
-
-          {/* Модуль 5 */}
-          <h3 className="font-light font-inter text-xl md:text-2xl bg-gradient-to-r from-amber-300 via-yellow-400 to-amber-500 bg-clip-text text-transparent animate-premium-fade-in tracking-wide text-shadow-[0_0_20px_rgba(251,191,36,0.8)] drop-shadow-[0_0_15px_rgba(251,191,36,0.6)] text-center">Модуль 5. Съёмка и монтаж. «Простой продакшн»</h3>
-          <div className="rounded-xl sm:rounded-2xl p-4 sm:p-6 ring-1 shadow-soft hover:shadow-glow transition-all duration-500 hover:ring-accent/30 bg-gradient-to-br from-gray-500/10 via-slate-400/5 to-gray-600/15 ring-amber-500/10 backdrop-blur-sm border border-amber-500/5">
-            <div className="text-subtle/90 leading-relaxed text-base sm:text-lg drop-shadow-[0_0_4px_rgba(139,92,246,0.2)] text-left">
-              <p className="mb-4">Ты увидишь, как я делаю всё на телефон. Без камер, света и монтажёров.</p>
-              
-              <p className="mb-4">🎬 Реальные действия на экране:</p>
-              
-              <div className="flex items-start gap-4 group mb-4">
-                <div className="flex-shrink-0 w-10 h-10 bg-gradient-to-br from-purple-500/20 to-cyan-500/20 rounded-xl flex items-center justify-center border border-purple-400/30 backdrop-blur-sm group-hover:scale-110 transition-all duration-300 hover:shadow-[0_0_15px_rgba(139,92,246,0.4)]">
-                  <svg className="w-5 h-5 text-red-300 group-hover:text-white animate-pulse" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z" />
-                  </svg>
-                </div>
-                <span className="text-subtle/90 leading-relaxed text-lg drop-shadow-[0_0_4px_rgba(139,92,246,0.2)] flex-1">как снимать короткие видео (улица/дом/кафе)</span>
-              </div>
-              
-              <div className="flex items-start gap-4 group mb-4">
-                <div className="flex-shrink-0 w-10 h-10 bg-gradient-to-br from-purple-500/20 to-cyan-500/20 rounded-xl flex items-center justify-center border border-purple-400/30 backdrop-blur-sm group-hover:scale-110 transition-all duration-300 hover:shadow-[0_0_15px_rgba(139,92,246,0.4)]">
-                  <svg className="w-5 h-5 text-cyan-300 group-hover:text-white animate-bounce" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M11 4a2 2 0 114 0v1a1 1 0 001 1h3a1 1 0 011 1v3a1 1 0 01-1 1h-1a2 2 0 100 4h1a1 1 0 011 1v3a1 1 0 01-1 1h-3a1 1 0 01-1-1v-1a2 2 0 10-4 0v1a1 1 0 01-1 1H7a1 1 0 01-1-1v-3a1 1 0 00-1-1H4a1 1 0 01-1-1V9a1 1 0 011-1h1a2 2 0 100-4H4a1 1 0 01-1-1V5a1 1 0 011-1h3a1 1 0 001-1V4z" />
-                  </svg>
-                </div>
-                <span className="text-subtle/90 leading-relaxed text-lg drop-shadow-[0_0_4px_rgba(139,92,246,0.2)] flex-1">как быстро обрезать, наложить аудио и загрузить</span>
-              </div>
-              
-              <div className="flex items-start gap-4 group mb-4">
-                <div className="flex-shrink-0 w-10 h-10 bg-gradient-to-br from-purple-500/20 to-cyan-500/20 rounded-xl flex items-center justify-center border border-purple-400/30 backdrop-blur-sm group-hover:scale-110 transition-all duration-300 hover:shadow-[0_0_15px_rgba(139,92,246,0.4)]">
-                  <svg className="w-5 h-5 text-pink-300 group-hover:text-white animate-spin" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
-                  </svg>
-                </div>
-                <span className="text-subtle/90 leading-relaxed text-lg drop-shadow-[0_0_4px_rgba(139,92,246,0.2)] flex-1">как делать это так, чтобы выглядело живо, а не по-учебному</span>
-              </div>
             </div>
           </div>
         </div>
@@ -775,45 +738,9 @@ export default function OfferPage() {
             Тебе не нужно нравиться всем. Достаточно быть ценным для тех, кому это действительно важно.
           </h3>
         </div>
-        <div className="text-left">
-          <LiquidButton asChild size="xl">
-            <a href="#checkout" className="inline-flex items-center gap-3">
-              <span>Готов(а) начать — 1990 р.</span>
-              <ArrowRightIcon className="w-5 h-5" />
-            </a>
-          </LiquidButton>
-        </div>
 
-        {/* Блок 6 - Цена */}
-        <div className="rounded-xl bg-gradient-to-br from-gray-500/10 via-slate-400/5 to-gray-600/15 backdrop-blur-sm border border-white/5 ring-1 ring-white/10 shadow-soft p-6 sm:p-8 hover:shadow-glow transition-all duration-500 hover:ring-accent/30">
-          <div className="flex items-center gap-3 mb-4">
-            <CoinIcon className="w-6 h-6 sm:w-7 sm:h-7 text-amber-400 flex-shrink-0" />
-            <h2 className="text-xl sm:text-2xl font-light bg-gradient-to-r from-amber-300 via-yellow-400 to-amber-400 bg-clip-text text-transparent animate-premium-fade-in" style={{
-          fontFamily: 'Inter, system-ui, sans-serif',
-          fontWeight: '300',
-          letterSpacing: '0.05em',
-          textShadow: '0 2px 4px rgba(0,0,0,0.3)',
-          filter: 'drop-shadow(0 1px 2px rgba(255,215,0,0.2))'
-        }}>Сколько это стоит?</h2>
-          </div>
-          <pre className="whitespace-pre-wrap text-subtle/90 leading-relaxed text-base sm:text-lg drop-shadow-[0_0_4px_rgba(139,92,246,0.2)]">{`1990 р. — разовый платёж.
 
-Без подписок. Без растянутых курсов на 8 недель. Без теории, которую никто не применяет.
-Ты просто покупаешь — и сразу получаешь доступ ко всему. Коротко, по делу и без лишнего.
-Смотри, применяй и начинай расти уже сегодня.`}</pre>
-        </div>
-
-        {/* CTA 3 */}
-        <div className="text-left">
-          <LiquidButton asChild size="xl">
-            <a href="#checkout" className="inline-flex items-center gap-3">
-              <span>Начать сегодня — 1990 р.</span>
-              <ArrowRightIcon className="w-5 h-5" />
-            </a>
-          </LiquidButton>
-        </div>
-
-        {/* Блок 7 - Инструменты */}
+        {/* Блок 6 - Инструменты */}
         <div className="rounded-xl bg-gradient-to-br from-gray-500/10 via-slate-400/5 to-gray-600/15 backdrop-blur-sm border border-white/5 ring-1 ring-white/10 shadow-soft p-6 sm:p-8 hover:shadow-glow transition-all duration-500 hover:ring-accent/30">
           <div className="flex items-center gap-3 mb-4">
             <BadgeIcon className="w-6 h-6 sm:w-7 sm:h-7 text-amber-400 flex-shrink-0" />
@@ -849,7 +776,7 @@ export default function OfferPage() {
           </div>
         </div>
 
-        {/* Блок 8 - FAQ */}
+        {/* Блок 7 - FAQ */}
         <div className="rounded-xl bg-gradient-to-br from-gray-500/10 via-slate-400/5 to-gray-600/15 backdrop-blur-sm border border-white/5 ring-1 ring-white/10 shadow-soft p-6 sm:p-8 hover:shadow-glow transition-all duration-500 hover:ring-accent/30">
           <div className="flex items-center gap-3 mb-4">
             <HelpCircleIcon className="w-6 h-6 sm:w-7 sm:h-7 text-amber-400 flex-shrink-0" />
@@ -881,12 +808,92 @@ export default function OfferPage() {
           </div>
         </div>
 
+        {/* Блок 8 - Цена */}
+        <div className="rounded-xl bg-gradient-to-br from-gray-500/10 via-slate-400/5 to-gray-600/15 backdrop-blur-sm border border-white/5 ring-1 ring-white/10 shadow-soft p-6 sm:p-8 hover:shadow-glow transition-all duration-500 hover:ring-accent/30">
+          <div className="flex items-center gap-3 mb-4">
+            <CoinIcon className="w-6 h-6 sm:w-7 sm:h-7 text-amber-400 flex-shrink-0" />
+            <h2 className="text-xl sm:text-2xl font-light bg-gradient-to-r from-amber-300 via-yellow-400 to-amber-400 bg-clip-text text-transparent animate-premium-fade-in" style={{
+          fontFamily: 'Inter, system-ui, sans-serif',
+          fontWeight: '300',
+          letterSpacing: '0.05em',
+          textShadow: '0 2px 4px rgba(0,0,0,0.3)',
+          filter: 'drop-shadow(0 1px 2px rgba(255,215,0,0.2))'
+        }}>Сколько это стоит?</h2>
+          </div>
+          <div className="text-subtle/90 leading-relaxed text-base sm:text-lg drop-shadow-[0_0_4px_rgba(139,92,246,0.2)] space-y-4">
+            <p>Если бы ты пытался собрать всё это по отдельности, то тебе пришлось бы потратить минимум 18 000 ₽.</p>
+            <p>И то — если бы ты вообще нашёл, где это взять.</p>
+            
+            <p>Потому что эти материалы не продаются в открытом доступе.</p>
+            <p>Я собрал их из своего личного опыта — из того, что реально сработало и дало результат.</p>
+            
+            <div className="space-y-2 my-6">
+              <p className="flex items-center gap-2"><CheckCircleIcon className="w-5 h-5 text-amber-400 flex-shrink-0" /> Упаковка блога — отдельно 3 000 ₽</p>
+              <p className="flex items-center gap-2"><CheckCircleIcon className="w-5 h-5 text-amber-400 flex-shrink-0" /> Контент-конвейер — отдельно 5 000 ₽</p>
+              <p className="flex items-center gap-2"><CheckCircleIcon className="w-5 h-5 text-amber-400 flex-shrink-0" /> Текстовые Reels (формула + разборы) — отдельно 7 000 ₽</p>
+              <p className="flex items-center gap-2"><CheckCircleIcon className="w-5 h-5 text-amber-400 flex-shrink-0" /> Публикации-карусели — отдельно 3 000 ₽</p>
+            </div>
+            
+            <p className="font-semibold">ИТОГО по отдельности: 18 000 ₽</p>
+            
+            <p>И это честная цена, потому что всё это напрямую влияет на рост твоего блога и экономит месяцы проб и ошибок.</p>
+            
+            <p>Но я прекрасно понимаю:</p>
+            <p>в начале пути не каждый готов сразу вложить такую сумму.</p>
+            
+            <p>Поэтому я сделал практикум максимально доступным —</p>
+            <p>чтобы ты мог попробовать систему на деле.</p>
+            
+            <div className="p-4 sm:p-6 rounded-lg border-2 border-amber-400 text-center">
+              <p className="text-subtle/90 leading-relaxed text-base sm:text-lg drop-shadow-[0_0_4px_rgba(139,92,246,0.2)] flex items-center justify-center gap-2 mb-3">
+                <ArrowRightIcon className="w-5 h-5 text-amber-400 flex-shrink-0" /> 
+                Если ты присоединишься сейчас, то получишь всё это за
+              </p>
+              <div className="flex flex-col sm:flex-row sm:items-center sm:justify-center gap-2 sm:gap-4">
+                <span className="text-subtle/90 leading-relaxed text-base sm:text-lg drop-shadow-[0_0_4px_rgba(139,92,246,0.2)] font-bold line-through text-gray-400">18 000 ₽</span>
+                <span className="text-2xl sm:text-3xl font-bold bg-gradient-to-r from-amber-300 via-yellow-400 to-amber-400 bg-clip-text text-transparent" style={{textShadow: '0 2px 4px rgba(0,0,0,0.3)', filter: 'drop-shadow(0 1px 2px rgba(255,215,0,0.2))'}}>1 990 ₽</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* CTA 3 */}
+        <div className="text-left">
+          <LiquidButton asChild size="xl">
+            <a href="#checkout" className="inline-flex items-center gap-3">
+              <span>Начать сегодня — 1990 р.</span>
+              <ArrowRightIcon className="w-5 h-5" />
+            </a>
+          </LiquidButton>
+        </div>
+
+        {/* Блок гарантии */}
+        <div className="rounded-xl bg-gradient-to-br from-gray-500/10 via-slate-400/5 to-gray-600/15 backdrop-blur-sm border border-white/5 ring-1 ring-white/10 shadow-soft p-6 sm:p-8 hover:shadow-glow transition-all duration-500 hover:ring-accent/30">
+          <div className="space-y-4 text-subtle/90 leading-relaxed text-base sm:text-lg drop-shadow-[0_0_4px_rgba(139,92,246,0.2)]">
+            <p>И ещё важный момент.</p>
+            <p>Я гарантирую полный возврат в течение 14 дней — без вопросов.</p>
+            <p>Если тебе по какой-то причине не зайдёт, просто напиши — и я верну деньги.</p>
+            <p>Почему я так делаю?</p>
+            <p>Потому что уверен в этой системе.</p>
+            <p>Она помогла мне набрать десятки тысяч подписчиков и миллионы просмотров.</p>
+            <p>И теперь может сработать и у тебя.</p>
+          </div>
+          
+          {/* Кнопка "Занять место" */}
+          <div className="mt-6 flex justify-center">
+            <LiquidButton asChild size="xl">
+              <a href="#checkout" className="inline-flex items-center gap-3">
+                <span>Занять место</span>
+              </a>
+            </LiquidButton>
+          </div>
+        </div>
 
 
         {/* Финальный призыв к действию */}
         <div className="text-center space-y-6 max-w-4xl mx-auto">
-          <div className="relative rounded-xl p-6 sm:p-8 bg-gradient-to-br from-amber-500/10 via-yellow-400/5 to-amber-600/15 backdrop-blur-sm border border-amber-500/20 ring-1 ring-amber-400/20 shadow-soft overflow-visible">
-            <div className="absolute inset-0 bg-gradient-to-br from-amber-400/5 via-yellow-300/3 to-amber-500/8 rounded-xl blur-sm"></div>
+          <div className="relative rounded-xl p-6 sm:p-8 bg-gradient-to-br from-gray-500/10 via-slate-400/5 to-gray-600/15 backdrop-blur-sm border border-white/5 ring-1 ring-white/10 shadow-soft overflow-visible">
+            <div className="absolute inset-0 bg-gradient-to-br from-gray-400/5 via-slate-300/3 to-gray-500/8 rounded-xl blur-sm"></div>
             <div className="relative">
               <h3 className="text-xl sm:text-2xl md:text-3xl font-light bg-gradient-to-r from-amber-300 via-yellow-400 to-amber-400 bg-clip-text text-transparent animate-premium-fade-in text-center leading-relaxed" style={{
                 fontFamily: 'Inter, system-ui, sans-serif',
@@ -895,7 +902,7 @@ export default function OfferPage() {
                 textShadow: '0 2px 4px rgba(0,0,0,0.3)',
                 filter: 'drop-shadow(0 1px 2px rgba(255,215,0,0.2)) drop-shadow(0 0 10px rgba(255,215,0,0.1))'
               }}>
-                Ты можешь снова отложить и остаться там же, где сейчас. А можешь — прямо сегодня запустить систему и увидеть, как твой блог начинает расти
+                Ты можешь снова отложить и остаться там же, где сейчас. А можешь — прямо сегодня запустить систему и увидеть, как твой блог начинает расти.
               </h3>
             </div>
           </div>
@@ -906,6 +913,80 @@ export default function OfferPage() {
           <LiquidButton asChild size="xl">
             <a href="#" className="inline-flex items-center gap-3">
               <span>начать обучение</span>
+              <ArrowRightIcon className="w-5 h-5" />
+            </a>
+          </LiquidButton>
+        </div>
+
+        {/* Финальное послание */}
+        <div className="rounded-xl bg-gradient-to-br from-gray-500/10 via-slate-400/5 to-gray-600/15 backdrop-blur-sm border border-white/5 ring-1 ring-white/10 shadow-soft p-6 sm:p-8 hover:shadow-glow transition-all duration-500 hover:ring-accent/30">
+          <div className="space-y-4 text-center">
+            <p className="text-xl sm:text-2xl md:text-3xl font-light bg-gradient-to-r from-amber-300 via-yellow-400 to-amber-400 bg-clip-text text-transparent leading-relaxed" style={{
+              fontFamily: 'Inter, system-ui, sans-serif',
+              fontWeight: '300',
+              letterSpacing: '0.05em',
+              textShadow: '0 2px 4px rgba(0,0,0,0.3)',
+              filter: 'drop-shadow(0 1px 2px rgba(255,215,0,0.2)) drop-shadow(0 0 10px rgba(255,215,0,0.1))'
+            }}>Хочу сказать напоследок одну простую вещь.</p>
+            
+            <p className="text-xl sm:text-2xl md:text-3xl font-light bg-gradient-to-r from-amber-300 via-yellow-400 to-amber-400 bg-clip-text text-transparent leading-relaxed" style={{
+              fontFamily: 'Inter, system-ui, sans-serif',
+              fontWeight: '300',
+              letterSpacing: '0.05em',
+              textShadow: '0 2px 4px rgba(0,0,0,0.3)',
+              filter: 'drop-shadow(0 1px 2px rgba(255,215,0,0.2)) drop-shadow(0 0 10px rgba(255,215,0,0.1))'
+            }}>Я благодарен за то, что у меня есть блог и люди, которые здесь со мной. Это не просто цифры или охваты — это живые истории, новые возможности и настоящая свобода. Всё это сильно поменяло мою жизнь.</p>
+            
+            <p className="text-xl sm:text-2xl md:text-3xl font-light bg-gradient-to-r from-amber-300 via-yellow-400 to-amber-400 bg-clip-text text-transparent leading-relaxed" style={{
+              fontFamily: 'Inter, system-ui, sans-serif',
+              fontWeight: '300',
+              letterSpacing: '0.05em',
+              textShadow: '0 2px 4px rgba(0,0,0,0.3)',
+              filter: 'drop-shadow(0 1px 2px rgba(255,215,0,0.2)) drop-shadow(0 0 10px rgba(255,215,0,0.1))'
+            }}>Если ты до сих пор думаешь, стоит ли начинать — для меня ответ очевиден. Это было одним из самых верных шагов, и я бы повторил его снова без сомнений.</p>
+            
+            <p className="text-xl sm:text-2xl md:text-3xl font-light bg-gradient-to-r from-amber-300 via-yellow-400 to-amber-400 bg-clip-text text-transparent leading-relaxed" style={{
+              fontFamily: 'Inter, system-ui, sans-serif',
+              fontWeight: '300',
+              letterSpacing: '0.05em',
+              textShadow: '0 2px 4px rgba(0,0,0,0.3)',
+              filter: 'drop-shadow(0 1px 2px rgba(255,215,0,0.2)) drop-shadow(0 0 10px rgba(255,215,0,0.1))'
+            }}>Дальше выбор только за тобой.</p>
+            
+            <p className="text-xl sm:text-2xl md:text-3xl font-light bg-gradient-to-r from-amber-300 via-yellow-400 to-amber-400 bg-clip-text text-transparent leading-relaxed" style={{
+              fontFamily: 'Inter, system-ui, sans-serif',
+              fontWeight: '300',
+              letterSpacing: '0.05em',
+              textShadow: '0 2px 4px rgba(0,0,0,0.3)',
+              filter: 'drop-shadow(0 1px 2px rgba(255,215,0,0.2)) drop-shadow(0 0 10px rgba(255,215,0,0.1))'
+            }}>Ты можешь идти долгим путём проб и ошибок, как когда-то делал я.</p>
+            
+            <p className="text-xl sm:text-2xl md:text-3xl font-light bg-gradient-to-r from-amber-300 via-yellow-400 to-amber-400 bg-clip-text text-transparent leading-relaxed" style={{
+              fontFamily: 'Inter, system-ui, sans-serif',
+              fontWeight: '300',
+              letterSpacing: '0.05em',
+              textShadow: '0 2px 4px rgba(0,0,0,0.3)',
+              filter: 'drop-shadow(0 1px 2px rgba(255,215,0,0.2)) drop-shadow(0 0 10px rgba(255,215,0,0.1))'
+            }}>А можешь взять готовую систему и сразу запустить блог так, чтобы он начал расти уже сейчас.</p>
+            
+            <p className="text-xl sm:text-2xl md:text-3xl font-light bg-gradient-to-r from-amber-300 via-yellow-400 to-amber-400 bg-clip-text text-transparent leading-relaxed" style={{
+              fontFamily: 'Inter, system-ui, sans-serif',
+              fontWeight: '300',
+              letterSpacing: '0.05em',
+              textShadow: '0 2px 4px rgba(0,0,0,0.3)',
+              filter: 'drop-shadow(0 1px 2px rgba(255,215,0,0.2)) drop-shadow(0 0 10px rgba(255,215,0,0.1))'
+            }}>В любом случае — решение в твоих руках.</p>
+            <div className="text-center mt-4">
+               <span className="inline-block animate-bounce text-amber-400" style={{fontSize: '2em'}}>↓</span>
+             </div>
+          </div>
+        </div>
+        
+        {/* Финальная кнопка */}
+        <div className="text-center mt-8 mb-8">
+          <LiquidButton asChild size="xl">
+            <a href="#checkout" className="inline-flex items-center gap-3">
+              <span>Начать — 1990 р.</span>
               <ArrowRightIcon className="w-5 h-5" />
             </a>
           </LiquidButton>
