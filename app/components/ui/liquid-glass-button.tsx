@@ -106,7 +106,7 @@ function LiquidButton({
         )}
         {...props}
       >
-        {React.cloneElement(children as React.ReactElement, {
+        {React.cloneElement(children as React.ReactElement<any>, {
           style: {
             position: 'relative',
             overflow: 'hidden',
@@ -119,21 +119,21 @@ function LiquidButton({
             fontWeight: '600',
             textShadow: '0 1px 2px rgba(0, 0, 0, 0.3)',
             transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)',
-            ...(children as React.ReactElement).props.style
+            ...((children as React.ReactElement<any>).props.style || {})
           },
           onMouseEnter: (e: React.MouseEvent) => {
             const target = e.currentTarget as HTMLElement;
             target.style.transform = 'scale(1.05) translateY(-2px)';
             target.style.boxShadow = '0 16px 48px rgba(147, 51, 234, 0.4), 0 8px 24px rgba(37, 99, 235, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.3), inset 0 -1px 0 rgba(0, 0, 0, 0.1)';
             target.style.background = 'linear-gradient(135deg, #a855f7 0%, #3b82f6 50%, #0891b2 100%)';
-            (children as React.ReactElement).props.onMouseEnter?.(e);
+            (children as React.ReactElement<any>).props.onMouseEnter?.(e);
           },
           onMouseLeave: (e: React.MouseEvent) => {
             const target = e.currentTarget as HTMLElement;
             target.style.transform = 'scale(1) translateY(0)';
             target.style.boxShadow = '0 8px 32px rgba(147, 51, 234, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.2), inset 0 -1px 0 rgba(0, 0, 0, 0.1)';
             target.style.background = 'linear-gradient(135deg, #9333ea 0%, #2563eb 50%, #06b6d4 100%)';
-            (children as React.ReactElement).props.onMouseLeave?.(e);
+            (children as React.ReactElement<any>).props.onMouseLeave?.(e);
           }
         })}
       </Slot>
