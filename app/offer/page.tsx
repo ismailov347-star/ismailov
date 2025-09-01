@@ -299,7 +299,7 @@ export default function OfferPage() {
         </div>
 
         {/* CTA 1 */}
-        <div className="text-left">
+        <div className="text-center">
           <LiquidButton asChild size="xl">
             <a href="#checkout">
               Присоединиться сейчас
@@ -684,7 +684,7 @@ export default function OfferPage() {
         </div>
 
         {/* CTA 2 */}
-        <div className="text-left">
+        <div className="text-center">
           <LiquidButton asChild size="lg">
             <a href="#checkout" className="inline-flex items-center gap-3">
               <span>Хочу доступ к системе</span>
@@ -860,7 +860,7 @@ export default function OfferPage() {
         </div>
 
         {/* CTA 3 */}
-        <div className="text-left">
+        <div className="text-center">
           <LiquidButton asChild size="xl">
             <a href="#checkout" className="inline-flex items-center gap-3">
               <span>Начать сегодня — 1990 р.</span>
