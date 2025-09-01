@@ -873,7 +873,7 @@ export default function OfferPage() {
         <div className="rounded-xl bg-gradient-to-br from-gray-500/10 via-slate-400/5 to-gray-600/15 backdrop-blur-sm border border-white/5 ring-1 ring-white/10 shadow-soft p-6 sm:p-8 hover:shadow-glow transition-all duration-500 hover:ring-accent/30">
           <div className="space-y-4 text-subtle/90 leading-relaxed text-base sm:text-lg drop-shadow-[0_0_4px_rgba(139,92,246,0.2)]">
             <p>И ещё важный момент.</p>
-            <p>Я гарантирую полный возврат в течение 14 дней — без вопросов.</p>
+            <p>Я гарантирую полный возврат в течение 7 дней — без вопросов.</p>
             <p>Если тебе по какой-то причине не зайдёт, просто напиши — и я верну деньги.</p>
             <p>Почему я так делаю?</p>
             <p>Потому что уверен в этой системе.</p>
