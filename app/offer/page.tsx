@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { Squares } from "../components/ui/squares-background";
+import { Squares } from "@/components/ui/squares-background";
 import TypewriterHeadline from "@/components/TypewriterHeadline";
 import Footer from "@/components/Footer";
 

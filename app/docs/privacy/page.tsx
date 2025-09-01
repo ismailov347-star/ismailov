@@ -1,6 +1,6 @@
 "use client";
 
-import { Squares } from "../../components/ui/squares-background";
+import { Squares } from "@/components/ui/squares-background";
 import Footer from "@/components/Footer";
 
 export default function PrivacyPage() {
