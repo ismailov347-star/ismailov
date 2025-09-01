@@ -848,10 +848,12 @@ export default function OfferPage() {
               <p className="text-subtle/90 leading-relaxed text-base sm:text-lg drop-shadow-[0_0_4px_rgba(139,92,246,0.2)] text-center mb-3">
                 Если ты присоединишься сейчас, то получишь всё это за
               </p>
-              <div className="flex flex-col sm:flex-row sm:items-center sm:justify-center gap-2 sm:gap-4">
+              <div className="flex flex-col items-center justify-center gap-3">
                 <span className="text-subtle/90 leading-relaxed text-base sm:text-lg drop-shadow-[0_0_4px_rgba(139,92,246,0.2)] font-bold line-through text-gray-400">18 000 ₽</span>
-                <span className="text-2xl sm:text-3xl font-bold bg-gradient-to-r from-amber-300 via-yellow-400 to-amber-400 bg-clip-text text-transparent flex items-center gap-2" style={{textShadow: '0 2px 4px rgba(0,0,0,0.3)', filter: 'drop-shadow(0 1px 2px rgba(255,215,0,0.2))'}}>
+                <div className="flex items-center justify-center gap-2">
                   <ArrowRightIcon className="w-6 h-6 text-amber-400 animate-bounce" />
+                </div>
+                <span className="text-2xl sm:text-3xl font-bold bg-gradient-to-r from-amber-300 via-yellow-400 to-amber-400 bg-clip-text text-transparent" style={{textShadow: '0 2px 4px rgba(0,0,0,0.3)', filter: 'drop-shadow(0 1px 2px rgba(255,215,0,0.2))'}}>
                   1 990 ₽
                 </span>
               </div>
