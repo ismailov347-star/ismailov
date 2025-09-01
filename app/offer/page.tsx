@@ -960,6 +960,21 @@ export default function OfferPage() {
               textShadow: '0 2px 4px rgba(0,0,0,0.3)',
               filter: 'drop-shadow(0 1px 2px rgba(255,215,0,0.2)) drop-shadow(0 0 10px rgba(255,215,0,0.1))'
             }}>Решение за тобой</p>
+            
+            {/* Золотистая прыгающая стрелка */}
+            <div className="flex justify-center mt-4">
+              <svg 
+                className="w-8 h-8 text-amber-400 animate-bounce" 
+                fill="currentColor" 
+                viewBox="0 0 24 24"
+                style={{
+                  filter: 'drop-shadow(0 2px 4px rgba(255,215,0,0.3)) drop-shadow(0 0 10px rgba(255,215,0,0.2))',
+                  animation: 'bounce 1s infinite'
+                }}
+              >
+                <path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z" />
+              </svg>
+            </div>
           </div>
         </div>
         
