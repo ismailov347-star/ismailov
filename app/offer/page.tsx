@@ -791,7 +791,7 @@ export default function OfferPage() {
           <div className="space-y-3 text-base sm:text-lg text-subtle/90 leading-relaxed drop-shadow-[0_0_4px_rgba(139,92,246,0.2)]">
             <div className="flex items-start gap-3">
               <CheckCircleIcon className="w-5 h-5 text-amber-400 flex-shrink-0 mt-0.5" />
-              <pre className="whitespace-pre-wrap text-subtle/90 leading-relaxed text-base sm:text-lg drop-shadow-[0_0_4px_rgba(139,92,246,0.2)]"><strong className="text-amber-400">Обратная связь/разборы?</strong> Да, есть чат для вопросов и разборов.</pre>
+              <pre className="whitespace-pre-wrap text-subtle/90 leading-relaxed text-base sm:text-lg drop-shadow-[0_0_4px_rgba(139,92,246,0.2)]"><strong className="text-amber-400">Обратная связь?</strong> Вы можете написать мне в личку и я отвечу на все ваши вопросы.</pre>
             </div>
             <div className="flex items-start gap-3">
               <CheckCircleIcon className="w-5 h-5 text-amber-400 flex-shrink-0 mt-0.5" />
