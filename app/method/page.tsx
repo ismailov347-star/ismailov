@@ -9,7 +9,7 @@ import { ImageAutoSlider } from "@/app/components/ui/image-auto-slider";
 import TypewriterHeadline from "@/components/TypewriterHeadline";
 import AdvantagesBlock from "@/components/AdvantagesBlock";
 import ScrollProgressBar from "@/components/ScrollProgressBar";
-import { Squares } from "../components/ui/squares-background";
+import { Squares } from "../../components/ui/squares-background";
 import Footer from "@/components/Footer";
 
 export default function Page() {

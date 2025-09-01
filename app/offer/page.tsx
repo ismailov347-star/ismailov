@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { Squares } from "../components/ui/squares-background";
+import { Squares } from "../../components/ui/squares-background";
 import TypewriterHeadline from "@/components/TypewriterHeadline";
 import Footer from "@/components/Footer";
 
@@ -935,7 +935,7 @@ export default function OfferPage() {
               letterSpacing: '0.05em',
               textShadow: '0 2px 4px rgba(0,0,0,0.3)',
               filter: 'drop-shadow(0 1px 2px rgba(255,215,0,0.2)) drop-shadow(0 0 10px rgba(255,215,0,0.1))'
-            }}>Я благодарен за то, что у меня есть блог и люди, которые здесь со мной. Это не просто цифры или охваты — это живые истории, новые возможности и настоящая свобода. Всё это сильно поменяло мою жизнь.</p>
+            }}>Я благодарен за свой блог и за людей, которые здесь со мной. Это не про цифры — это про жизнь, свободу и новые возможности.</p>
             
             <p className="text-xl sm:text-2xl md:text-3xl font-light bg-gradient-to-r from-amber-300 via-yellow-400 to-amber-400 bg-clip-text text-transparent leading-relaxed" style={{
               fontFamily: 'Inter, system-ui, sans-serif',
@@ -943,7 +943,7 @@ export default function OfferPage() {
               letterSpacing: '0.05em',
               textShadow: '0 2px 4px rgba(0,0,0,0.3)',
               filter: 'drop-shadow(0 1px 2px rgba(255,215,0,0.2)) drop-shadow(0 0 10px rgba(255,215,0,0.1))'
-            }}>Если ты до сих пор думаешь, стоит ли начинать — для меня ответ очевиден. Это было одним из самых верных шагов, и я бы повторил его снова без сомнений.</p>
+            }}>И если ты всё ещё сидишь и думаешь, то знай: время всё равно пройдёт. Только вопрос в том — ты проведёшь его в сомнениях или начнёшь действовать.</p>
             
             <p className="text-xl sm:text-2xl md:text-3xl font-light bg-gradient-to-r from-amber-300 via-yellow-400 to-amber-400 bg-clip-text text-transparent leading-relaxed" style={{
               fontFamily: 'Inter, system-ui, sans-serif',
@@ -951,7 +951,7 @@ export default function OfferPage() {
               letterSpacing: '0.05em',
               textShadow: '0 2px 4px rgba(0,0,0,0.3)',
               filter: 'drop-shadow(0 1px 2px rgba(255,215,0,0.2)) drop-shadow(0 0 10px rgba(255,215,0,0.1))'
-            }}>Дальше выбор только за тобой.</p>
+            }}>Готовая система уже есть. Осталось только нажать кнопку.</p>
             
             <p className="text-xl sm:text-2xl md:text-3xl font-light bg-gradient-to-r from-amber-300 via-yellow-400 to-amber-400 bg-clip-text text-transparent leading-relaxed" style={{
               fontFamily: 'Inter, system-ui, sans-serif',
@@ -959,23 +959,7 @@ export default function OfferPage() {
               letterSpacing: '0.05em',
               textShadow: '0 2px 4px rgba(0,0,0,0.3)',
               filter: 'drop-shadow(0 1px 2px rgba(255,215,0,0.2)) drop-shadow(0 0 10px rgba(255,215,0,0.1))'
-            }}>Ты можешь идти долгим путём проб и ошибок, как когда-то делал я.</p>
-            
-            <p className="text-xl sm:text-2xl md:text-3xl font-light bg-gradient-to-r from-amber-300 via-yellow-400 to-amber-400 bg-clip-text text-transparent leading-relaxed" style={{
-              fontFamily: 'Inter, system-ui, sans-serif',
-              fontWeight: '300',
-              letterSpacing: '0.05em',
-              textShadow: '0 2px 4px rgba(0,0,0,0.3)',
-              filter: 'drop-shadow(0 1px 2px rgba(255,215,0,0.2)) drop-shadow(0 0 10px rgba(255,215,0,0.1))'
-            }}>А можешь взять готовую систему и сразу запустить блог так, чтобы он начал расти уже сейчас.</p>
-            
-            <p className="text-xl sm:text-2xl md:text-3xl font-light bg-gradient-to-r from-amber-300 via-yellow-400 to-amber-400 bg-clip-text text-transparent leading-relaxed" style={{
-              fontFamily: 'Inter, system-ui, sans-serif',
-              fontWeight: '300',
-              letterSpacing: '0.05em',
-              textShadow: '0 2px 4px rgba(0,0,0,0.3)',
-              filter: 'drop-shadow(0 1px 2px rgba(255,215,0,0.2)) drop-shadow(0 0 10px rgba(255,215,0,0.1))'
-            }}>В любом случае — решение в твоих руках.</p>
+            }}>Решение за тобой 👇</p>
             <div className="text-center mt-4">
                <span className="inline-block animate-bounce text-amber-400" style={{fontSize: '2em'}}>↓</span>
              </div>
