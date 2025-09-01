@@ -685,9 +685,9 @@ export default function OfferPage() {
 
         {/* CTA 2 */}
         <div className="text-left">
-          <LiquidButton asChild size="xl">
+          <LiquidButton asChild size="lg">
             <a href="#checkout" className="inline-flex items-center gap-3">
-              <span>Хочу доступ к Системе Лёгкого Контента</span>
+              <span>Хочу доступ к системе</span>
               <ArrowRightIcon className="w-5 h-5" />
             </a>
           </LiquidButton>
