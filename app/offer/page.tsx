@@ -960,9 +960,6 @@ export default function OfferPage() {
               textShadow: '0 2px 4px rgba(0,0,0,0.3)',
               filter: 'drop-shadow(0 1px 2px rgba(255,215,0,0.2)) drop-shadow(0 0 10px rgba(255,215,0,0.1))'
             }}>Решение за тобой</p>
-            <div className="text-center mt-4">
-               <span className="inline-block animate-bounce text-amber-400" style={{fontSize: '2em'}}>↓</span>
-             </div>
           </div>
         </div>
         
