@@ -15,8 +15,8 @@ export const metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="ru">
-      <body className={`min-h-screen ${playfair.variable}`}>{children}</body>
+    <html lang="ru" className="overflow-x-hidden">
+      <body className={`min-h-screen overflow-x-hidden ${playfair.variable}`}>{children}</body>
     </html>
   );
 }

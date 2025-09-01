@@ -210,9 +210,9 @@ export default function OfferPage() {
 
       {/* Hero */}
       <section className="relative mx-auto max-w-screen-xl px-4 sm:px-6 pt-6 sm:pt-8 pb-6 sm:pb-8 md:pt-12 md:pb-12">
-        <div className="absolute inset-0 -z-10 pointer-events-none">
-          <div className="absolute -top-20 -left-10 h-72 w-72 rounded-full bg-accent/10 blur-3xl animate-float" />
-          <div className="absolute top-40 right-0 h-64 w-64 rounded-full bg-accent/10 blur-3xl animate-float" style={{ animationDelay: "1.2s" }} />
+        <div className="absolute inset-0 -z-10 pointer-events-none overflow-hidden">
+          <div className="absolute -top-20 -left-5 sm:-left-10 h-48 w-48 sm:h-72 sm:w-72 rounded-full bg-accent/10 blur-3xl animate-float" />
+          <div className="absolute top-40 -right-5 sm:right-0 h-32 w-32 sm:h-64 sm:w-64 rounded-full bg-accent/10 blur-3xl animate-float" style={{ animationDelay: "1.2s" }} />
         </div>
 
         <RevealOnScroll>
@@ -229,7 +229,7 @@ export default function OfferPage() {
         </div>
         
         {/* Отдельный текст */}
-        <div className="text-center space-y-6 max-w-4xl mx-auto mb-8">
+        <div className="text-center space-y-6 w-full mx-auto mb-8">
           <p className="mt-3 text-lg md:text-xl text-subtle/90 max-w-3xl drop-shadow-[0_0_8px_rgba(139,92,246,0.2)] text-left mx-auto">
             Если ты читаешь это — значит, у тебя внутри уже есть импульс. Вопрос теперь не в желании, а в действии.
           </p>
@@ -265,7 +265,7 @@ export default function OfferPage() {
         </div>
 
         {/* Блок 1 */}
-        <div className="space-y-6 text-subtle/90 leading-relaxed text-base sm:text-lg drop-shadow-[0_0_4px_rgba(139,92,246,0.2)] max-w-4xl mx-auto">
+        <div className="space-y-6 text-subtle/90 leading-relaxed text-base sm:text-lg drop-shadow-[0_0_4px_rgba(139,92,246,0.2)] w-full mx-auto">
           <div className="rounded-xl sm:rounded-2xl p-4 sm:p-6 ring-1 shadow-soft hover:shadow-glow transition-all duration-500 hover:ring-accent/30 bg-gradient-to-br from-gray-500/10 via-slate-400/5 to-gray-600/15 ring-amber-500/10 backdrop-blur-sm border border-amber-500/5">
             <div className="space-y-4 text-left">
               <div className="group flex items-start gap-3">
@@ -332,7 +332,7 @@ export default function OfferPage() {
         </div>
 
         {/* Блок 3 */}
-        <div className="text-center space-y-6 text-subtle/90 leading-relaxed text-base sm:text-lg drop-shadow-[0_0_4px_rgba(139,92,246,0.2)] max-w-4xl mx-auto">
+        <div className="text-center space-y-6 text-subtle/90 leading-relaxed text-base sm:text-lg drop-shadow-[0_0_4px_rgba(139,92,246,0.2)] w-full mx-auto">
           <h3 className="font-light font-inter text-3xl md:text-4xl bg-gradient-to-r from-amber-300 via-yellow-400 to-amber-500 bg-clip-text text-transparent animate-premium-fade-in tracking-wide text-shadow-[0_0_20px_rgba(251,191,36,0.8)] drop-shadow-[0_0_15px_rgba(251,191,36,0.6)]">
             Что такое Система Лёгкого Контента?
           </h3>
@@ -347,7 +347,7 @@ export default function OfferPage() {
 
 
         {/* Блок 1 - Что внутри */}
-        <div className="text-center space-y-6 text-lg md:text-xl text-white/90 max-w-4xl mx-auto">
+        <div className="text-center space-y-6 text-lg md:text-xl text-white/90 w-full mx-auto">
           <h2 className="text-2xl md:text-3xl font-light bg-gradient-to-r from-amber-300 via-yellow-400 to-amber-400 bg-clip-text text-transparent animate-premium-fade-in text-left" style={{
             fontFamily: 'Inter, system-ui, sans-serif',
             fontWeight: '300',
@@ -891,7 +891,7 @@ export default function OfferPage() {
 
 
         {/* Финальный призыв к действию */}
-        <div className="text-center space-y-6 max-w-4xl mx-auto">
+        <div className="text-center space-y-6 w-full mx-auto">
           <div className="relative rounded-xl p-6 sm:p-8 bg-gradient-to-br from-gray-500/10 via-slate-400/5 to-gray-600/15 backdrop-blur-sm border border-white/5 ring-1 ring-white/10 shadow-soft overflow-visible">
             <div className="absolute inset-0 bg-gradient-to-br from-gray-400/5 via-slate-300/3 to-gray-500/8 rounded-xl blur-sm"></div>
             <div className="relative">
