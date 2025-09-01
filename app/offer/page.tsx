@@ -845,8 +845,7 @@ export default function OfferPage() {
             <p>чтобы ты мог попробовать систему на деле.</p>
             
             <div className="p-4 sm:p-6 rounded-lg border-2 border-amber-400 text-center">
-              <p className="text-subtle/90 leading-relaxed text-base sm:text-lg drop-shadow-[0_0_4px_rgba(139,92,246,0.2)] flex items-center justify-center gap-2 mb-3">
-                <ArrowRightIcon className="w-5 h-5 text-amber-400 flex-shrink-0" /> 
+              <p className="text-subtle/90 leading-relaxed text-base sm:text-lg drop-shadow-[0_0_4px_rgba(139,92,246,0.2)] text-center mb-3">
                 Если ты присоединишься сейчас, то получишь всё это за
               </p>
               <div className="flex flex-col sm:flex-row sm:items-center sm:justify-center gap-2 sm:gap-4">
