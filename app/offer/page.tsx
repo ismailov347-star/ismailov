@@ -199,6 +199,15 @@ export default function OfferPage() {
          email: 'user@example.com',
          skin: 'modern', // Современный интерфейс с полным набором способов оплаты
          autoClose: 3,
+         // Включаем альтернативные способы оплаты
+         enabledPaymentMethods: ['Card', 'SBP', 'YandexPay', 'TinkoffPay', 'SberPay'],
+         // Дополнительные настройки для отображения всех способов оплаты
+         configuration: {
+           common: {
+             successRedirectUrl: '/thanks',
+             failRedirectUrl: '/fail'
+           }
+         },
          data: {
            cloudPayments: {
              customerReceipt: {
