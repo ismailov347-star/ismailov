@@ -1,11 +1,19 @@
 {
+  "framework": "nextjs",
   "buildCommand": "npm run build",
   "outputDirectory": ".next",
-  "framework": "nextjs",
   "installCommand": "npm install",
   "build": {
     "env": {
       "NEXT_TELEMETRY_DISABLED": "1"
     }
+  },
+  "git": {
+    "deploymentEnabled": {
+      "main": true
+    }
+  },
+  "github": {
+    "autoDeployment": true
   }
 }
