@@ -1,9 +1,20 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Squares } from "@/components/ui/squares-background";
 import TypewriterHeadline from "@/components/TypewriterHeadline";
 import Footer from "@/components/Footer";
+
+// Declare CloudPayments widget type
+declare global {
+  interface Window {
+    cp: {
+      CloudPayments: {
+        charge: (data: any, options: any, success: (result: any) => void, fail: (reason: any) => void) => void;
+      };
+    };
+  }
+}
 
 // SVG Icons Components
 const CheckCircleIcon = ({ className = "" }) => (
@@ -167,6 +178,61 @@ export default function OfferPage() {
   const [isLoading, setIsLoading] = useState(true);
   const [openAccordion, setOpenAccordion] = useState<number | null>(null);
 
+  // Функция для инициализации платежного виджета CloudPayments
+  const startPayment = () => {
+    if (typeof window !== 'undefined' && window.cp) {
+      const widget = new window.cp.CloudPayments();
+      
+      const data = {
+        cloudPayments: {
+          customerReceipt: {
+            Items: [{
+              label: 'Система Лёгкого Контента',
+              price: 1990.00,
+              quantity: 1.00,
+              amount: 1990.00,
+              vat: null,
+              method: 0,
+              object: 0
+            }],
+            taxationSystem: 0,
+            email: '',
+            phone: ''
+          }
+        }
+      };
+      
+      const options = {
+        publicId: 'pk_test_example', // Замените на ваш реальный publicId
+        description: 'Система Лёгкого Контента',
+        amount: 1990,
+        currency: 'RUB',
+        accountId: 'user@example.com',
+        invoiceId: '1234567',
+        email: 'user@example.com',
+        skin: 'mini',
+        data: data
+      };
+      
+      widget.charge(options,
+        function (result: any) {
+          // Успешная оплата
+          console.log('Платеж успешен:', result);
+          alert('Спасибо за покупку! Доступ к курсу будет отправлен на вашу почту.');
+        },
+        function (reason: any) {
+          // Ошибка или отмена платежа
+          console.log('Ошибка платежа:', reason);
+          if (reason !== 'cancel') {
+            alert('Произошла ошибка при оплате. Попробуйте еще раз.');
+          }
+        }
+      );
+    } else {
+      alert('Платежный виджет не загружен. Попробуйте обновить страницу.');
+    }
+  };
+
   const toggleAccordion = (index: number) => {
     setOpenAccordion(openAccordion === index ? null : index);
   };
@@ -300,10 +366,8 @@ export default function OfferPage() {
 
         {/* CTA 1 */}
         <div className="text-center">
-          <LiquidButton asChild size="xl">
-            <a href="#checkout">
-              Присоединиться сейчас
-            </a>
+          <LiquidButton size="xl" onClick={startPayment}>
+            Присоединиться сейчас
           </LiquidButton>
         </div>
 
@@ -685,11 +749,9 @@ export default function OfferPage() {
 
         {/* CTA 2 */}
         <div className="text-center">
-          <LiquidButton asChild size="lg">
-            <a href="#checkout" className="inline-flex items-center gap-3">
-              <span>Хочу доступ к системе</span>
-              <ArrowRightIcon className="w-5 h-5" />
-            </a>
+          <LiquidButton size="lg" onClick={startPayment} className="inline-flex items-center gap-3">
+            <span>Хочу доступ к системе</span>
+            <ArrowRightIcon className="w-5 h-5" />
           </LiquidButton>
         </div>
 
@@ -861,11 +923,9 @@ export default function OfferPage() {
 
         {/* CTA 3 */}
         <div className="text-center">
-          <LiquidButton asChild size="xl">
-            <a href="#checkout" className="inline-flex items-center gap-3">
-              <span>Начать сегодня — 1990 р.</span>
-              <ArrowRightIcon className="w-5 h-5" />
-            </a>
+          <LiquidButton size="xl" onClick={startPayment} className="inline-flex items-center gap-3">
+            <span>Начать сегодня — 1990 р.</span>
+            <ArrowRightIcon className="w-5 h-5" />
           </LiquidButton>
         </div>
 
@@ -883,10 +943,8 @@ export default function OfferPage() {
           
           {/* Кнопка "Занять место" */}
           <div className="mt-6 flex justify-center">
-            <LiquidButton asChild size="xl">
-              <a href="#checkout" className="inline-flex items-center gap-3">
-                <span>Занять место</span>
-              </a>
+            <LiquidButton size="xl" onClick={startPayment} className="inline-flex items-center gap-3">
+              <span>Занять место</span>
             </LiquidButton>
           </div>
         </div>
@@ -912,11 +970,9 @@ export default function OfferPage() {
 
         {/* Блок оплаты */}
         <div id="checkout" className="rounded-xl bg-gradient-to-br from-gray-500/10 via-slate-400/5 to-gray-600/15 backdrop-blur-sm border border-white/5 ring-1 ring-white/10 shadow-soft p-6 sm:p-8 hover:shadow-glow transition-all duration-500 hover:ring-accent/30 text-center">
-          <LiquidButton asChild size="xl">
-            <a href="#" className="inline-flex items-center gap-3">
-              <span>начать обучение</span>
-              <ArrowRightIcon className="w-5 h-5" />
-            </a>
+          <LiquidButton size="xl" onClick={startPayment} className="inline-flex items-center gap-3">
+            <span>начать обучение</span>
+            <ArrowRightIcon className="w-5 h-5" />
           </LiquidButton>
         </div>
 
@@ -982,11 +1038,9 @@ export default function OfferPage() {
         
         {/* Финальная кнопка */}
         <div className="text-center mt-8 mb-8">
-          <LiquidButton asChild size="xl">
-            <a href="#checkout" className="inline-flex items-center gap-3">
-              <span>Начать — 1990 р.</span>
-              <ArrowRightIcon className="w-5 h-5" />
-            </a>
+          <LiquidButton size="xl" onClick={startPayment} className="inline-flex items-center gap-3">
+            <span>Начать — 1990 р.</span>
+            <ArrowRightIcon className="w-5 h-5" />
           </LiquidButton>
         </div>
       </section>
