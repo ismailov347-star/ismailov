@@ -190,6 +190,11 @@ export default function OfferPage() {
   // Функция для инициализации платежного виджета CloudPayments
   const startPayment = () => {
     if (typeof window !== 'undefined' && window.cp) {
+      // Генерация уникального ID платежа
+      const makeExternalId = () => {
+        return 'practicum_' + Date.now();
+      };
+      
       // Инициализация виджета с поддержкой всех платежных методов
       const payments = new window.cp.CloudPayments({
         language: "ru-RU",
@@ -199,13 +204,9 @@ export default function OfferPage() {
         yandexPaySupport: true,
         tinkoffPaySupport: true,
         tinkoffInstallmentSupport: true,
-        sbpSupport: true
+        sbpSupport: true,
+        sberPaySupport: true
       });
-      
-      // Генерация уникального ID платежа
-      const makeExternalId = () => {
-        return 'practicum_' + Date.now();
-      };
       
       // Запуск платежа с использованием метода pay
       payments.pay("charge", {
@@ -216,8 +217,10 @@ export default function OfferPage() {
         invoiceId: makeExternalId(),
         accountId: "user@example.com",
         email: "",
-        skin: "classic",
+        skin: "modern",
         requireEmail: true,
+        // Включаем все доступные способы оплаты
+        paymentMethods: ['Card', 'ApplePay', 'GooglePay', 'YandexPay', 'TinkoffPay', 'TinkoffInstallment', 'SBP', 'SberPay'],
         // Дополнительные данные для чека
         data: {
           cloudPayments: {
