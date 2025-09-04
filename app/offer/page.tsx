@@ -183,51 +183,63 @@ export default function OfferPage() {
     if (typeof window !== 'undefined' && window.cp) {
       const widget = new window.cp.CloudPayments();
       
-      const data = {
-        cloudPayments: {
-          customerReceipt: {
-            Items: [{
-              label: 'Система Лёгкого Контента',
-              price: 1990.00,
-              quantity: 1.00,
-              amount: 1990.00,
-              vat: null,
-              method: 0,
-              object: 0
-            }],
-            taxationSystem: 0,
-            email: '',
-            phone: ''
-          }
-        }
+      // Генерация уникального ID платежа
+      const makeExternalId = () => {
+        return 'practicum_' + Date.now();
       };
       
-      const options = {
-        publicId: 'pk_test_example', // Замените на ваш реальный publicId
+      // Параметры для запуска виджета
+      const intentParams = {
+        publicTerminalId: 'ЗДЕСЬ_ТВОЙ_publicTerminalId', // Замените на ваш реальный publicTerminalId
         description: 'Система Лёгкого Контента',
-        amount: 1990,
+        paymentSchema: 'Dual',
         currency: 'RUB',
-        accountId: 'user@example.com',
-        invoiceId: '1234567',
-        email: 'user@example.com',
-        skin: 'mini',
-        data: data
+        amount: 1990,
+        skin: 'modern',
+        autoClose: 3,
+        cryptogramMode: false,
+        externalId: makeExternalId(),
+        
+        userInfo: {
+          accountId: 'user@example.com',
+          email: 'user@example.com'
+        },
+        
+        receipt: {
+          items: [{
+            label: 'Система Лёгкого Контента',
+            price: 1990,
+            quantity: 1,
+            amount: 1990,
+            vat: 0,
+            method: 0,
+            object: 0,
+            measurementUnit: 'шт'
+          }],
+          taxationSystem: 0,
+          email: 'user@example.com'
+        },
+        
+        successRedirectUrl: '/thanks',
+        failRedirectUrl: '/fail',
+        
+        metadata: {
+          product: 'practicum',
+          plan: 'one_time'
+        },
+        
+        emailBehavior: 'Required'
       };
       
-      widget.charge(options,
-        function (result: any) {
-          // Успешная оплата
-          console.log('Платеж успешен:', result);
-          alert('Спасибо за покупку! Доступ к курсу будет отправлен на вашу почту.');
-        },
-        function (reason: any) {
-          // Ошибка или отмена платежа
-          console.log('Ошибка платежа:', reason);
-          if (reason !== 'cancel') {
-            alert('Произошла ошибка при оплате. Попробуйте еще раз.');
-          }
-        }
-      );
+      widget
+        .start(intentParams)
+        .then(function (result: any) {
+          console.log('CloudPayments result:', result);
+        })
+        .catch(function (error: any) {
+          console.error('CloudPayments error:', error);
+          alert('Произошла ошибка при запуске платежного виджета.');
+        });
     } else {
       alert('Платежный виджет не загружен. Попробуйте обновить страницу.');
     }
