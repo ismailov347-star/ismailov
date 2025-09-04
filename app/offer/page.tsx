@@ -9,8 +9,17 @@ import Footer from "@/components/Footer";
 declare global {
   interface Window {
     cp: {
-      CloudPayments: {
-        charge: (data: any, options: any, success: (result: any) => void, fail: (reason: any) => void) => void;
+      CloudPayments: new (config?: {
+        language?: string;
+        email?: string;
+        applePaySupport?: boolean;
+        googlePaySupport?: boolean;
+        yandexPaySupport?: boolean;
+        tinkoffPaySupport?: boolean;
+        tinkoffInstallmentSupport?: boolean;
+        sbpSupport?: boolean;
+      }) => {
+        pay: (type: string, data: any) => Promise<any>;
       };
     };
   }
@@ -181,67 +190,64 @@ export default function OfferPage() {
   // Функция для инициализации платежного виджета CloudPayments
   const startPayment = () => {
     if (typeof window !== 'undefined' && window.cp) {
-      const widget = new window.cp.CloudPayments();
+      // Инициализация виджета с поддержкой всех платежных методов
+      const payments = new window.cp.CloudPayments({
+        language: "ru-RU",
+        email: "",
+        applePaySupport: true,
+        googlePaySupport: true,
+        yandexPaySupport: true,
+        tinkoffPaySupport: true,
+        tinkoffInstallmentSupport: true,
+        sbpSupport: true
+      });
       
       // Генерация уникального ID платежа
       const makeExternalId = () => {
         return 'practicum_' + Date.now();
       };
       
-      // Параметры для запуска виджета
-       const options = {
-         publicId: 'test_api_00000000000000000000001', // Тестовый publicId для демонстрации
-         description: 'Система Лёгкого Контента',
-         amount: 1990,
-         currency: 'RUB',
-         accountId: 'user@example.com',
-         invoiceId: makeExternalId(),
-         email: 'user@example.com',
-         skin: 'modern', // Современный интерфейс с полным набором способов оплаты
-         autoClose: 3,
-         // Включаем альтернативные способы оплаты
-         enabledPaymentMethods: ['Card', 'SBP', 'YandexPay', 'TinkoffPay', 'SberPay'],
-         // Дополнительные настройки для отображения всех способов оплаты
-         configuration: {
-           common: {
-             successRedirectUrl: '/thanks',
-             failRedirectUrl: '/fail'
-           }
-         },
-         data: {
-           cloudPayments: {
-             customerReceipt: {
-               Items: [{
-                 label: 'Система Лёгкого Контента',
-                 price: 1990.00,
-                 quantity: 1.00,
-                 amount: 1990.00,
-                 vat: null,
-                 method: 0,
-                 object: 0
-               }],
-               taxationSystem: 0,
-               email: 'user@example.com',
-               phone: ''
-             }
-           }
-         }
-       };
-      
-      widget.charge(options,
-         function (result: any) {
-           // Успешная оплата
-           console.log('Платеж успешен:', result);
-           window.location.href = '/thanks';
-         },
-         function (reason: any) {
-           // Ошибка или отмена платежа
-           console.log('Ошибка платежа:', reason);
-           if (reason !== 'cancel') {
-             window.location.href = '/fail';
-           }
-         }
-       );
+      // Запуск платежа с использованием метода pay
+      payments.pay("charge", {
+        publicId: "test_api_00000000000000000000002",
+        description: "Система Лёгкого Контента",
+        amount: 1990,
+        currency: "RUB",
+        invoiceId: makeExternalId(),
+        accountId: "user@example.com",
+        email: "",
+        skin: "classic",
+        requireEmail: true,
+        // Дополнительные данные для чека
+        data: {
+          cloudPayments: {
+            customerReceipt: {
+              Items: [{
+                label: 'Система Лёгкого Контента',
+                price: 1990.00,
+                quantity: 1.00,
+                amount: 1990.00,
+                vat: null,
+                method: 0,
+                object: 0
+              }],
+              taxationSystem: 0,
+              email: 'user@example.com',
+              phone: ''
+            }
+          }
+        }
+      }).then(function(widgetResult) {
+        // Успешная оплата
+        console.log('result', widgetResult);
+        window.location.href = '/thanks';
+      }).catch(function(error) {
+        // Ошибка или отмена платежа
+        console.log('error', error);
+        if (error !== 'cancel') {
+          window.location.href = '/fail';
+        }
+      });
     } else {
       alert('Платежный виджет не загружен. Попробуйте обновить страницу.');
     }
