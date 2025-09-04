@@ -189,57 +189,49 @@ export default function OfferPage() {
       };
       
       // Параметры для запуска виджета
-      const intentParams = {
-        publicTerminalId: 'ЗДЕСЬ_ТВОЙ_publicTerminalId', // Замените на ваш реальный publicTerminalId
-        description: 'Система Лёгкого Контента',
-        paymentSchema: 'Dual',
-        currency: 'RUB',
-        amount: 1990,
-        skin: 'modern',
-        autoClose: 3,
-        cryptogramMode: false,
-        externalId: makeExternalId(),
-        
-        userInfo: {
-          accountId: 'user@example.com',
-          email: 'user@example.com'
-        },
-        
-        receipt: {
-          items: [{
-            label: 'Система Лёгкого Контента',
-            price: 1990,
-            quantity: 1,
-            amount: 1990,
-            vat: 0,
-            method: 0,
-            object: 0,
-            measurementUnit: 'шт'
-          }],
-          taxationSystem: 0,
-          email: 'user@example.com'
-        },
-        
-        successRedirectUrl: '/thanks',
-        failRedirectUrl: '/fail',
-        
-        metadata: {
-          product: 'practicum',
-          plan: 'one_time'
-        },
-        
-        emailBehavior: 'Required'
-      };
+       const options = {
+         publicId: 'test_api_00000000000000000000001', // Тестовый publicId для демонстрации
+         description: 'Система Лёгкого Контента',
+         amount: 1990,
+         currency: 'RUB',
+         accountId: 'user@example.com',
+         invoiceId: makeExternalId(),
+         email: 'user@example.com',
+         skin: 'mini',
+         data: {
+           cloudPayments: {
+             customerReceipt: {
+               Items: [{
+                 label: 'Система Лёгкого Контента',
+                 price: 1990.00,
+                 quantity: 1.00,
+                 amount: 1990.00,
+                 vat: null,
+                 method: 0,
+                 object: 0
+               }],
+               taxationSystem: 0,
+               email: 'user@example.com',
+               phone: ''
+             }
+           }
+         }
+       };
       
-      widget
-        .start(intentParams)
-        .then(function (result: any) {
-          console.log('CloudPayments result:', result);
-        })
-        .catch(function (error: any) {
-          console.error('CloudPayments error:', error);
-          alert('Произошла ошибка при запуске платежного виджета.');
-        });
+      widget.charge(options,
+         function (result: any) {
+           // Успешная оплата
+           console.log('Платеж успешен:', result);
+           window.location.href = '/thanks';
+         },
+         function (reason: any) {
+           // Ошибка или отмена платежа
+           console.log('Ошибка платежа:', reason);
+           if (reason !== 'cancel') {
+             window.location.href = '/fail';
+           }
+         }
+       );
     } else {
       alert('Платежный виджет не загружен. Попробуйте обновить страницу.');
     }
