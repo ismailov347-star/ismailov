@@ -197,7 +197,8 @@ export default function OfferPage() {
          accountId: 'user@example.com',
          invoiceId: makeExternalId(),
          email: 'user@example.com',
-         skin: 'mini',
+         skin: 'modern', // Современный интерфейс с полным набором способов оплаты
+         autoClose: 3,
          data: {
            cloudPayments: {
              customerReceipt: {
