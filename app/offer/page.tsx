@@ -204,8 +204,7 @@ export default function OfferPage() {
         yandexPaySupport: true,
         tinkoffPaySupport: true,
         tinkoffInstallmentSupport: true,
-        sbpSupport: true,
-        sberPaySupport: true
+        sbpSupport: true
       });
       
       // Запуск платежа с использованием метода pay
