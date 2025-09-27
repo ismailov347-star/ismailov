@@ -772,9 +772,8 @@ export default function OfferPage() {
 
         {/* CTA 2 */}
         <div className="text-center">
-          <LiquidButton size="lg" onClick={startPayment} className="inline-flex items-center gap-3">
+          <LiquidButton size="lg" onClick={startPayment}>
             <span>Хочу доступ к системе</span>
-            <ArrowRightIcon className="w-5 h-5" />
           </LiquidButton>
         </div>
 
@@ -946,9 +945,8 @@ export default function OfferPage() {
 
         {/* CTA 3 */}
         <div className="text-center">
-          <LiquidButton size="xl" onClick={startPayment} className="inline-flex items-center gap-3">
+          <LiquidButton size="xl" onClick={startPayment}>
             <span>Начать сегодня — 1990 р.</span>
-            <ArrowRightIcon className="w-5 h-5" />
           </LiquidButton>
         </div>
 
@@ -993,9 +991,8 @@ export default function OfferPage() {
 
         {/* Блок оплаты */}
         <div id="checkout" className="rounded-xl bg-gradient-to-br from-gray-500/10 via-slate-400/5 to-gray-600/15 backdrop-blur-sm border border-white/5 ring-1 ring-white/10 shadow-soft p-6 sm:p-8 hover:shadow-glow transition-all duration-500 hover:ring-accent/30 text-center">
-          <LiquidButton size="xl" onClick={startPayment} className="inline-flex items-center gap-3">
+          <LiquidButton size="xl" onClick={startPayment}>
             <span>начать обучение</span>
-            <ArrowRightIcon className="w-5 h-5" />
           </LiquidButton>
         </div>
 
@@ -1061,9 +1058,8 @@ export default function OfferPage() {
         
         {/* Финальная кнопка */}
         <div className="text-center mt-8 mb-8">
-          <LiquidButton size="xl" onClick={startPayment} className="inline-flex items-center gap-3">
+          <LiquidButton size="xl" onClick={startPayment}>
             <span>Начать — 1990 р.</span>
-            <ArrowRightIcon className="w-5 h-5" />
           </LiquidButton>
         </div>
       </section>
