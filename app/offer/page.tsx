@@ -187,73 +187,44 @@ export default function OfferPage() {
   const [isLoading, setIsLoading] = useState(true);
   const [openAccordion, setOpenAccordion] = useState<number | null>(null);
 
-  // Функция для инициализации платежного виджета CloudPayments
+  // Функция для открытия виджета GetCourse
   const startPayment = () => {
-    if (typeof window !== 'undefined' && window.cp) {
-      // Генерация уникального ID платежа
-      const makeExternalId = () => {
-        return 'practicum_' + Date.now();
-      };
-      
-      // Инициализация виджета с поддержкой всех платежных методов
-      const payments = new window.cp.CloudPayments({
-        language: "ru-RU",
-        email: "",
-        applePaySupport: true,
-        googlePaySupport: true,
-        yandexPaySupport: true,
-        tinkoffPaySupport: true,
-        tinkoffInstallmentSupport: true,
-        sbpSupport: true
-      });
-      
-      // Запуск платежа с использованием метода pay
-      payments.pay("charge", {
-        publicId: "test_api_00000000000000000000002",
-        description: "Система Лёгкого Контента",
-        amount: 1990,
-        currency: "RUB",
-        invoiceId: makeExternalId(),
-        accountId: "user@example.com",
-        email: "",
-        skin: "modern",
-        requireEmail: true,
-        // Включаем все доступные способы оплаты
-        paymentMethods: ['Card', 'ApplePay', 'GooglePay', 'YandexPay', 'TinkoffPay', 'TinkoffInstallment', 'SBP', 'SberPay'],
-        // Дополнительные данные для чека
-        data: {
-          cloudPayments: {
-            customerReceipt: {
-              Items: [{
-                label: 'Система Лёгкого Контента',
-                price: 1990.00,
-                quantity: 1.00,
-                amount: 1990.00,
-                vat: null,
-                method: 0,
-                object: 0
-              }],
-              taxationSystem: 0,
-              email: 'user@example.com',
-              phone: ''
-            }
-          }
-        }
-      }).then(function(widgetResult) {
-        // Успешная оплата
-        console.log('result', widgetResult);
-        window.location.href = '/thanks';
-      }).catch(function(error) {
-        // Ошибка или отмена платежа
-        console.log('error', error);
-        if (error !== 'cancel') {
-          window.location.href = '/fail';
-        }
-      });
-    } else {
-      alert('Платежный виджет не загружен. Попробуйте обновить страницу.');
+    // Открываем виджет GetCourse
+    if (typeof window !== 'undefined') {
+      // Здесь будет логика открытия виджета GetCourse
+      console.log('Opening GetCourse widget');
     }
   };
+
+  // Инициализация GetCourse виджета при загрузке страницы
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      const handleLoad = () => {
+        const loc = document.getElementById("149187068dd7cb722159");
+        if (loc) {
+          loc.setAttribute('value', window.location.href);
+        }
+        const ref = document.getElementById("149187068dd7cb722159ref");
+        if (ref) {
+          ref.setAttribute('value', document.referrer);
+        }
+
+        const statUrl = "https://school.ismablog.ru/stat/counter?ref=" + encodeURIComponent(document.referrer)
+          + "&loc=" + encodeURIComponent(document.location.href);
+        const container = document.getElementById('gccounterImgContainer');
+        if (container) {
+          container.innerHTML = "<img width=1 height=1 style='display:none' id='gccounterImg' src='" + statUrl + "'/>";
+        }
+      };
+
+      if (document.readyState === 'complete') {
+        handleLoad();
+      } else {
+        window.addEventListener('load', handleLoad);
+        return () => window.removeEventListener('load', handleLoad);
+      }
+    }
+  }, []);
 
   const toggleAccordion = (index: number) => {
     setOpenAccordion(openAccordion === index ? null : index);
@@ -285,6 +256,11 @@ export default function OfferPage() {
 
   return (
     <main className="relative">
+      {/* GetCourse виджет элементы */}
+      <span id="gccounterImgContainer"></span>
+      <input type="hidden" id="149187068dd7cb722159" />
+      <input type="hidden" id="149187068dd7cb722159ref" />
+      
       <Squares 
         className="fixed inset-0 w-full h-full pointer-events-none -z-10" 
         direction="diagonal" 
