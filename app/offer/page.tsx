@@ -5,7 +5,7 @@ import Script from "next/script";
 import { Squares } from "@/components/ui/squares-background";
 import TypewriterHeadline from "@/components/TypewriterHeadline";
 import Footer from "@/components/Footer";
-import GetCoursePayForm from "@/components/GetCoursePayForm";
+
 
 // SVG Icons Components
 const CheckCircleIcon = ({ className = "" }) => (
@@ -304,23 +304,7 @@ export default function OfferPage() {
 
         {/* CTA 1 */}
         <div className="text-center">
-          <LiquidButton size="xl" onClick={() => { 
-                  console.log('Button clicked, checking GC:', (window as any).GC);
-                  if ((window as any).GC?.showWidget) {
-                    console.log('Opening widget');
-                    (window as any).GC.showWidget('1491870');
-                  } else {
-                    console.log('GC not ready, retrying in 1 second');
-                    setTimeout(() => {
-                      if ((window as any).GC?.showWidget) {
-                        console.log('Opening widget after retry');
-                        (window as any).GC.showWidget('1491870');
-                      } else {
-                        console.log('GC still not available');
-                      }
-                    }, 1000);
-                  }
-                }} data-gc-pay="true">
+          <LiquidButton size="xl" onClick={() => window.GC?.showWidget?.('1491870')} data-gc-pay="true">
             Присоединиться сейчас
           </LiquidButton>
         </div>
@@ -1002,7 +986,11 @@ export default function OfferPage() {
       <Footer />
       
       {/* GetCourse Widget */}
-      <GetCoursePayForm />
+      <Script
+        id="ebfd00e56b5d53e123c2e1baf410c8008ff7430e"
+        src="https://school.ismablog.ru/pl/lite/widget/script?id=1491870"
+        strategy="beforeInteractive"
+      />
     </main>
   );
 }

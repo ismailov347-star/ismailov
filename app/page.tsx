@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Script from "next/script";
 import LoadingScreen from "@/components/LoadingScreen";
 import RevealOnScroll from "@/components/RevealOnScroll";
 import { ImageAutoSlider } from "@/app/components/ui/image-auto-slider";
@@ -568,6 +569,13 @@ export default function HomePage() {
       </section>
 
       <Footer />
+      
+      {/* GetCourse Widget */}
+      <Script
+        id="ebfd00e56b5d53e123c2e1baf410c8008ff7430e"
+        src="https://school.ismablog.ru/pl/lite/widget/script?id=1491870"
+        strategy="beforeInteractive"
+      />
     </main>
   );
 }
