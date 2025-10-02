@@ -1143,12 +1143,35 @@ export default function OfferPage() {
             } else {
               console.error('GC object not found after', maxAttempts * 100, 'ms');
               console.log('Window object keys:', Object.keys(window));
+              // Создаем fallback GC объект
+              (window as any).GC = {
+                showWidget: function(widgetId: string) {
+                  console.log('Using fallback GC.showWidget for:', widgetId);
+                  // Открываем виджет в новом окне как fallback
+                  const widgetUrl = `https://school.ismablog.ru/pl/lite/widget?id=${widgetId}`;
+                  window.open(widgetUrl, '_blank', 'width=600,height=700,scrollbars=yes,resizable=yes');
+                }
+              };
+              (window as any).gcWidgetReady = true;
+              console.log('Fallback GC object created');
             }
           };
           setTimeout(checkGC, 100);
         }}
         onError={(e) => {
           console.error('Failed to load GetCourse script:', e);
+          // Создаем fallback GC объект при ошибке загрузки скрипта
+          if (typeof window !== 'undefined') {
+            (window as any).GC = {
+              showWidget: function(widgetId: string) {
+                console.log('Using error fallback GC.showWidget for:', widgetId);
+                const widgetUrl = `https://school.ismablog.ru/pl/lite/widget?id=${widgetId}`;
+                window.open(widgetUrl, '_blank', 'width=600,height=700,scrollbars=yes,resizable=yes');
+              }
+            };
+            (window as any).gcWidgetReady = true;
+            console.log('Error fallback GC object created');
+          }
         }}
       />
     </main>
