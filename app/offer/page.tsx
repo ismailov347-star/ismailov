@@ -1,29 +1,12 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import Script from "next/script";
 import { Squares } from "@/components/ui/squares-background";
 import TypewriterHeadline from "@/components/TypewriterHeadline";
 import Footer from "@/components/Footer";
 
-// Declare CloudPayments widget type
-declare global {
-  interface Window {
-    cp: {
-      CloudPayments: new (config?: {
-        language?: string;
-        email?: string;
-        applePaySupport?: boolean;
-        googlePaySupport?: boolean;
-        yandexPaySupport?: boolean;
-        tinkoffPaySupport?: boolean;
-        tinkoffInstallmentSupport?: boolean;
-        sbpSupport?: boolean;
-      }) => {
-        pay: (type: string, data: any) => Promise<any>;
-      };
-    };
-  }
-}
+// GetCourse form will be handled via GetCoursePayForm component
 
 // SVG Icons Components
 const CheckCircleIcon = ({ className = "" }) => (
@@ -187,44 +170,7 @@ export default function OfferPage() {
   const [isLoading, setIsLoading] = useState(true);
   const [openAccordion, setOpenAccordion] = useState<number | null>(null);
 
-  // Функция для открытия виджета GetCourse
-  const startPayment = () => {
-    // Открываем виджет GetCourse
-    if (typeof window !== 'undefined') {
-      // Здесь будет логика открытия виджета GetCourse
-      console.log('Opening GetCourse widget');
-    }
-  };
 
-  // Инициализация GetCourse виджета при загрузке страницы
-  useEffect(() => {
-    if (typeof window !== 'undefined') {
-      const handleLoad = () => {
-        const loc = document.getElementById("149187068dd7cb722159");
-        if (loc) {
-          loc.setAttribute('value', window.location.href);
-        }
-        const ref = document.getElementById("149187068dd7cb722159ref");
-        if (ref) {
-          ref.setAttribute('value', document.referrer);
-        }
-
-        const statUrl = "https://school.ismablog.ru/stat/counter?ref=" + encodeURIComponent(document.referrer)
-          + "&loc=" + encodeURIComponent(document.location.href);
-        const container = document.getElementById('gccounterImgContainer');
-        if (container) {
-          container.innerHTML = "<img width=1 height=1 style='display:none' id='gccounterImg' src='" + statUrl + "'/>";
-        }
-      };
-
-      if (document.readyState === 'complete') {
-        handleLoad();
-      } else {
-        window.addEventListener('load', handleLoad);
-        return () => window.removeEventListener('load', handleLoad);
-      }
-    }
-  }, []);
 
   const toggleAccordion = (index: number) => {
     setOpenAccordion(openAccordion === index ? null : index);
@@ -256,11 +202,6 @@ export default function OfferPage() {
 
   return (
     <main className="relative">
-      {/* GetCourse виджет элементы */}
-      <span id="gccounterImgContainer"></span>
-      <input type="hidden" id="149187068dd7cb722159" />
-      <input type="hidden" id="149187068dd7cb722159ref" />
-      
       <Squares 
         className="fixed inset-0 w-full h-full pointer-events-none -z-10" 
         direction="diagonal" 
@@ -364,7 +305,23 @@ export default function OfferPage() {
 
         {/* CTA 1 */}
         <div className="text-center">
-          <LiquidButton size="xl" onClick={startPayment}>
+          <LiquidButton size="xl" onClick={() => { 
+                  console.log('Button clicked, checking GC:', (window as any).GC);
+                  if ((window as any).GC?.showWidget) {
+                    console.log('Opening widget');
+                    (window as any).GC.showWidget('1491870');
+                  } else {
+                    console.log('GC not ready, retrying in 1 second');
+                    setTimeout(() => {
+                      if ((window as any).GC?.showWidget) {
+                        console.log('Opening widget after retry');
+                        (window as any).GC.showWidget('1491870');
+                      } else {
+                        console.log('GC still not available');
+                      }
+                    }, 1000);
+                  }
+                }} data-gc-pay="true">
             Присоединиться сейчас
           </LiquidButton>
         </div>
@@ -747,7 +704,7 @@ export default function OfferPage() {
 
         {/* CTA 2 */}
         <div className="text-center">
-          <LiquidButton size="lg" onClick={startPayment}>
+          <LiquidButton size="lg" onClick={() => window.GC?.showWidget?.('1491870')} data-gc-pay="true">
             <span>Хочу доступ к системе</span>
           </LiquidButton>
         </div>
@@ -920,7 +877,7 @@ export default function OfferPage() {
 
         {/* CTA 3 */}
         <div className="text-center">
-          <LiquidButton size="xl" onClick={startPayment}>
+          <LiquidButton size="xl" onClick={() => window.GC?.showWidget?.('1491870')} data-gc-pay="true">
             <span>Начать сегодня — 1990 р.</span>
           </LiquidButton>
         </div>
@@ -939,7 +896,7 @@ export default function OfferPage() {
           
           {/* Кнопка "Занять место" */}
           <div className="mt-6 flex justify-center">
-            <LiquidButton size="xl" onClick={startPayment} className="inline-flex items-center gap-3">
+            <LiquidButton size="xl" onClick={() => window.GC?.showWidget?.('1491870')} className="inline-flex items-center gap-3" data-gc-pay="true">
               <span>Занять место</span>
             </LiquidButton>
           </div>
@@ -966,7 +923,7 @@ export default function OfferPage() {
 
         {/* Блок оплаты */}
         <div id="checkout" className="rounded-xl bg-gradient-to-br from-gray-500/10 via-slate-400/5 to-gray-600/15 backdrop-blur-sm border border-white/5 ring-1 ring-white/10 shadow-soft p-6 sm:p-8 hover:shadow-glow transition-all duration-500 hover:ring-accent/30 text-center">
-          <LiquidButton size="xl" onClick={startPayment}>
+          <LiquidButton size="xl" onClick={() => window.GC?.showWidget?.('1491870')} data-gc-pay="true">
             <span>начать обучение</span>
           </LiquidButton>
         </div>
@@ -1033,13 +990,24 @@ export default function OfferPage() {
         
         {/* Финальная кнопка */}
         <div className="text-center mt-8 mb-8">
-          <LiquidButton size="xl" onClick={startPayment}>
+          <LiquidButton size="xl" onClick={() => window.GC?.showWidget?.('1491870')} data-gc-pay="true">
             <span>Начать — 1990 р.</span>
           </LiquidButton>
         </div>
       </section>
       
+
+      
+
+      
       <Footer />
+      
+      {/* GetCourse Widget Script */}
+      <Script
+        id="ebfd00e56b5d53e123c2e1baf410c8008ff7430e"
+        src="https://school.ismablog.ru/pl/lite/widget/script?id=1491870"
+        strategy="beforeInteractive"
+      />
     </main>
   );
 }

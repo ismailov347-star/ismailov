@@ -27,7 +27,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="ru" className="overflow-x-hidden">
       <head>
-        <script src="https://widget.cloudpayments.ru/bundles/cloudpayments.js"></script>
+
       </head>
       <body className={`min-h-screen overflow-x-hidden ${playfair.variable}`}>{children}</body>
     </html>

@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import LoadingScreen from "@/components/LoadingScreen";
 import RevealOnScroll from "@/components/RevealOnScroll";
 import ImageCarousel from "@/components/ImageCarousel";
@@ -11,9 +11,92 @@ import AdvantagesBlock from "@/components/AdvantagesBlock";
 import ScrollProgressBar from "@/components/ScrollProgressBar";
 import { Squares } from "@/components/ui/squares-background";
 import Footer from "@/components/Footer";
+import GetCoursePayForm from "@/components/GetCoursePayForm";
 
 export default function Page() {
   const [isLoading, setIsLoading] = useState(true);
+
+  // Загрузка GetCourse-виджета
+  useEffect(() => {
+    const script = document.createElement('script');
+    script.id = 'ebfd00e56b5d53e123c2e1baf410c8008ff7430e';
+    script.src = 'https://school.ismablog.ru/pl/lite/widget/script?id=1491870';
+    document.head.appendChild(script);
+
+    return () => {
+      const existingScript = document.getElementById('ebfd00e56b5d53e123c2e1baf410c8008ff7430e');
+      if (existingScript) {
+        existingScript.remove();
+      }
+    };
+  }, []);
+
+  // Обработчик для открытия виджета при клике на кнопки
+  useEffect(() => {
+    const handleButtonClick = (event: Event) => {
+      const target = event.target as HTMLElement;
+      const button = target.closest('a, button');
+      
+      if (button) {
+        // Проверяем, не является ли это ссылкой на другую страницу
+        const link = button as HTMLAnchorElement;
+        if (link.href && (link.href.includes('/offer') || link.href.includes('/istoriya') || link.href.includes('/')  && !link.href.includes('#'))) {
+          // Позволяем обычную навигацию для ссылок на другие страницы
+          return;
+        }
+        
+        event.preventDefault();
+        
+        // Заполняем скрытую форму GetCourse
+        const emailField = document.querySelector('input[name="formParams[email]"]') as HTMLInputElement;
+        const nameField = document.querySelector('input[name="formParams[name]"]') as HTMLInputElement;
+        const phoneField = document.querySelector('input[name="formParams[phone]"]') as HTMLInputElement;
+        const offerIdField = document.querySelector('input[name="formParams[offer_id]"]') as HTMLInputElement;
+        const needOfferField = document.querySelector('input[name="formParams[need_offer]"]') as HTMLInputElement;
+        
+        if (emailField) emailField.value = 'user@example.com';
+        if (nameField) nameField.value = 'Пользователь';
+        if (phoneField) phoneField.value = '+7 (999) 999-99-99';
+        if (offerIdField) offerIdField.value = '1';
+        if (needOfferField) needOfferField.value = '1';
+        
+        // Отправляем форму GetCourse
+        const form = document.getElementById('ltForm921497') as HTMLFormElement;
+        if (form) {
+          if (form.requestSubmit) {
+            form.requestSubmit();
+          } else {
+            const submitButton = form.querySelector('button[type="submit"]') as HTMLButtonElement;
+            if (submitButton) {
+              submitButton.click();
+            }
+          }
+        }
+        
+        // Показываем модальное окно
+        const container = document.getElementById('getcourse-widget-container');
+        if (container) {
+          container.style.display = 'block';
+          
+          // Ищем iframe виджета и перемещаем его в контейнер
+          setTimeout(() => {
+            const iframe = document.querySelector('iframe[data-account-id="912144"]') as HTMLIFrameElement;
+            const widgetContent = document.getElementById('getcourse-widget-content');
+            
+            if (iframe && widgetContent) {
+              widgetContent.appendChild(iframe);
+              iframe.style.width = '100%';
+              iframe.style.height = '600px';
+              iframe.style.border = 'none';
+            }
+          }, 500);
+        }
+      }
+    };
+
+    document.addEventListener('click', handleButtonClick);
+    return () => document.removeEventListener('click', handleButtonClick);
+  }, []);
 
   return (
     <main className="relative">
@@ -491,6 +574,25 @@ export default function Page() {
        </section>
        
        <Footer />
+       
+       {/* Скрытая форма GetCourse */}
+       <GetCoursePayForm />
+       
+       {/* Контейнер для GetCourse-виджета */}
+       <div id="getcourse-widget-container" style={{ display: 'none', padding: '20px', backgroundColor: 'rgba(0,0,0,0.8)', position: 'fixed', top: '0', left: '0', width: '100%', height: '100%', zIndex: '9999' }}>
+         <div style={{ position: 'relative', maxWidth: '800px', margin: '50px auto', backgroundColor: 'white', borderRadius: '10px', padding: '20px' }}>
+           <button 
+             onClick={() => {
+               const container = document.getElementById('getcourse-widget-container');
+               if (container) container.style.display = 'none';
+             }}
+             style={{ position: 'absolute', top: '10px', right: '15px', background: 'none', border: 'none', fontSize: '24px', cursor: 'pointer' }}
+           >
+             ×
+           </button>
+           <div id="getcourse-widget-content"></div>
+         </div>
+       </div>
     </main>
   );
 }
