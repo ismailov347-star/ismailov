@@ -5,8 +5,7 @@ import Script from "next/script";
 import { Squares } from "@/components/ui/squares-background";
 import TypewriterHeadline from "@/components/TypewriterHeadline";
 import Footer from "@/components/Footer";
-
-// GetCourse form will be handled via GetCoursePayForm component
+import GetCoursePayForm from "@/components/GetCoursePayForm";
 
 // SVG Icons Components
 const CheckCircleIcon = ({ className = "" }) => (
@@ -1002,12 +1001,8 @@ export default function OfferPage() {
       
       <Footer />
       
-      {/* GetCourse Widget Script */}
-      <Script
-        id="ebfd00e56b5d53e123c2e1baf410c8008ff7430e"
-        src="https://school.ismablog.ru/pl/lite/widget/script?id=1491870"
-        strategy="beforeInteractive"
-      />
+      {/* GetCourse Widget */}
+      <GetCoursePayForm />
     </main>
   );
 }

@@ -8,7 +8,7 @@ export default function GetCoursePayForm() {
     console.log('Loading GetCourse script...');
     const script = document.createElement('script');
     script.id = 'ebfd00e56b5d53e123c2e1baf410c8008ff7430e';
-    script.src = 'http://school.ismablog.ru/pl/lite/widget/script?id=1491870';
+    script.src = 'https://school.ismablog.ru/pl/lite/widget/script?id=1491870';
     script.async = true;
     
     script.onload = () => {
