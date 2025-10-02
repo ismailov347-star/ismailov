@@ -305,8 +305,13 @@ export default function OfferPage() {
         {/* CTA 1 */}
         <div className="text-center">
           <LiquidButton size="xl" onClick={() => {
+            console.log('Button clicked, checking widget availability...');
+            console.log('window.GC:', typeof window !== 'undefined' ? window.GC : 'window undefined');
+            console.log('gcWidgetReady:', typeof window !== 'undefined' ? (window as any).gcWidgetReady : 'window undefined');
+            
             const tryShowWidget = () => {
               if (typeof window !== 'undefined' && window.GC && window.GC.showWidget) {
+                console.log('Showing widget...');
                 window.GC.showWidget('1491870');
                 return true;
               }
@@ -314,15 +319,18 @@ export default function OfferPage() {
             };
             
             if (!tryShowWidget()) {
-              // Ждем загрузки виджета до 3 секунд
+              console.log('Widget not available immediately, waiting...');
+              // Ждем загрузки виджета до 5 секунд
               let attempts = 0;
-              const maxAttempts = 30;
+              const maxAttempts = 50;
               const checkInterval = setInterval(() => {
                 attempts++;
+                console.log(`Attempt ${attempts}/${maxAttempts} to show widget`);
                 if (tryShowWidget() || attempts >= maxAttempts) {
                   clearInterval(checkInterval);
                   if (attempts >= maxAttempts) {
-                    console.error('GetCourse widget not available after waiting');
+                    console.error('GetCourse widget not available after waiting 5 seconds');
+                    console.log('Final window.GC state:', typeof window !== 'undefined' ? window.GC : 'window undefined');
                     alert('Виджет оплаты временно недоступен. Пожалуйста, попробуйте позже.');
                   }
                 }
@@ -1119,15 +1127,25 @@ export default function OfferPage() {
         strategy="afterInteractive"
         onLoad={() => {
           console.log('GetCourse script loaded successfully');
-          // Проверяем доступность GC через небольшую задержку
-          setTimeout(() => {
+          // Проверяем доступность GC через задержку с повторными попытками
+          let attempts = 0;
+          const maxAttempts = 50; // 5 секунд
+          const checkGC = () => {
+            attempts++;
             if (typeof window !== 'undefined' && (window as any).GC) {
               console.log('GC object is available:', (window as any).GC);
               (window as any).gcWidgetReady = true;
-            } else {
-              console.error('GC object not found after script load');
+              return;
             }
-          }, 100);
+            
+            if (attempts < maxAttempts) {
+              setTimeout(checkGC, 100);
+            } else {
+              console.error('GC object not found after', maxAttempts * 100, 'ms');
+              console.log('Window object keys:', Object.keys(window));
+            }
+          };
+          setTimeout(checkGC, 100);
         }}
         onError={(e) => {
           console.error('Failed to load GetCourse script:', e);
