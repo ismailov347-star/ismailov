@@ -256,7 +256,7 @@ export default function OfferPage() {
             }
 
             const iframe = document.createElement('iframe');
-            iframe.src = 'http://school.ismablog.ru/pl/lite/widget/widget'
+            iframe.src = 'https://school.ismablog.ru/pl/lite/widget/widget'
               + "?" + window.location.search.substring(1)
               + "&id=1491870"
               + "&ref=" + encodeURIComponent(document.referrer)
