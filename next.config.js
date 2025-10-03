@@ -15,7 +15,7 @@ const nextConfig = {
   // Static generation
   trailingSlash: false,
   
-  // Headers for better performance and CSP for GetCourse
+  // Headers for better performance
   async headers() {
     const securityHeaders = [
       {
@@ -29,18 +29,7 @@ const nextConfig = {
       {
         key: 'Referrer-Policy',
         value: 'origin-when-cross-origin'
-      },
-      {
-         key: 'Content-Security-Policy',
-         value:
-           "default-src 'self' http: https:; " +
-           "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://school.ismablog.ru http://school.ismablog.ru; " +
-           "style-src 'self' 'unsafe-inline' http: https:; " +
-           "connect-src 'self' http: https:; " +
-           "img-src 'self' data: http: https:; " +
-           "font-src 'self' http: https:; " +
-           "frame-src 'self' http://school.ismablog.ru https://school.ismablog.ru;"
-       }
+      }
     ];
     
     return [

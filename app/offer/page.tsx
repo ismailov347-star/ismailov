@@ -304,39 +304,7 @@ export default function OfferPage() {
 
         {/* CTA 1 */}
         <div className="text-center">
-          <LiquidButton size="xl" onClick={() => {
-            console.log('Button clicked, checking widget availability...');
-            console.log('window.GC:', typeof window !== 'undefined' ? window.GC : 'window undefined');
-            console.log('gcWidgetReady:', typeof window !== 'undefined' ? (window as any).gcWidgetReady : 'window undefined');
-            
-            const tryShowWidget = () => {
-              if (typeof window !== 'undefined' && window.GC && window.GC.showWidget) {
-                console.log('Showing widget...');
-                window.GC.showWidget('1491870');
-                return true;
-              }
-              return false;
-            };
-            
-            if (!tryShowWidget()) {
-              console.log('Widget not available immediately, waiting...');
-              // Ждем загрузки виджета до 5 секунд
-              let attempts = 0;
-              const maxAttempts = 50;
-              const checkInterval = setInterval(() => {
-                attempts++;
-                console.log(`Attempt ${attempts}/${maxAttempts} to show widget`);
-                if (tryShowWidget() || attempts >= maxAttempts) {
-                  clearInterval(checkInterval);
-                  if (attempts >= maxAttempts) {
-                    console.error('GetCourse widget not available after waiting 5 seconds');
-                    console.log('Final window.GC state:', typeof window !== 'undefined' ? window.GC : 'window undefined');
-                    alert('Виджет оплаты временно недоступен. Пожалуйста, попробуйте позже.');
-                  }
-                }
-              }, 100);
-            }
-          }} data-gc-pay="true">
+          <LiquidButton size="xl">
             Присоединиться сейчас
           </LiquidButton>
         </div>
@@ -719,31 +687,7 @@ export default function OfferPage() {
 
         {/* CTA 2 */}
         <div className="text-center">
-          <LiquidButton size="lg" onClick={() => {
-            const tryShowWidget = () => {
-              if (typeof window !== 'undefined' && window.GC && window.GC.showWidget) {
-                window.GC.showWidget('1491870');
-                return true;
-              }
-              return false;
-            };
-            
-            if (!tryShowWidget()) {
-              // Ждем загрузки виджета до 3 секунд
-              let attempts = 0;
-              const maxAttempts = 30;
-              const checkInterval = setInterval(() => {
-                attempts++;
-                if (tryShowWidget() || attempts >= maxAttempts) {
-                  clearInterval(checkInterval);
-                  if (attempts >= maxAttempts) {
-                    console.error('GetCourse widget not available after waiting');
-                    alert('Виджет оплаты временно недоступен. Пожалуйста, попробуйте позже.');
-                  }
-                }
-              }, 100);
-            }
-          }} data-gc-pay="true">
+          <LiquidButton size="lg">
             <span>Хочу доступ к системе</span>
           </LiquidButton>
         </div>
@@ -916,31 +860,7 @@ export default function OfferPage() {
 
         {/* CTA 3 */}
         <div className="text-center">
-          <LiquidButton size="xl" onClick={() => {
-            const tryShowWidget = () => {
-              if (typeof window !== 'undefined' && window.GC && window.GC.showWidget) {
-                window.GC.showWidget('1491870');
-                return true;
-              }
-              return false;
-            };
-            
-            if (!tryShowWidget()) {
-              // Ждем загрузки виджета до 3 секунд
-              let attempts = 0;
-              const maxAttempts = 30;
-              const checkInterval = setInterval(() => {
-                attempts++;
-                if (tryShowWidget() || attempts >= maxAttempts) {
-                  clearInterval(checkInterval);
-                  if (attempts >= maxAttempts) {
-                    console.error('GetCourse widget not available after waiting');
-                    alert('Виджет оплаты временно недоступен. Пожалуйста, попробуйте позже.');
-                  }
-                }
-              }, 100);
-            }
-          }} data-gc-pay="true">
+          <LiquidButton size="xl">
             <span>Начать сегодня — 1990 р.</span>
           </LiquidButton>
         </div>
@@ -959,31 +879,7 @@ export default function OfferPage() {
           
           {/* Кнопка "Занять место" */}
           <div className="mt-6 flex justify-center">
-            <LiquidButton size="xl" onClick={() => {
-            const tryShowWidget = () => {
-              if (typeof window !== 'undefined' && window.GC && window.GC.showWidget) {
-                window.GC.showWidget('1491870');
-                return true;
-              }
-              return false;
-            };
-            
-            if (!tryShowWidget()) {
-              // Ждем загрузки виджета до 3 секунд
-              let attempts = 0;
-              const maxAttempts = 30;
-              const checkInterval = setInterval(() => {
-                attempts++;
-                if (tryShowWidget() || attempts >= maxAttempts) {
-                  clearInterval(checkInterval);
-                  if (attempts >= maxAttempts) {
-                    console.error('GetCourse widget not available after waiting');
-                    alert('Виджет оплаты временно недоступен. Пожалуйста, попробуйте позже.');
-                  }
-                }
-              }, 100);
-            }
-          }} className="inline-flex items-center gap-3" data-gc-pay="true">
+            <LiquidButton size="xl" className="inline-flex items-center gap-3">
               <span>Занять место</span>
             </LiquidButton>
           </div>
@@ -1010,31 +906,7 @@ export default function OfferPage() {
 
         {/* Блок оплаты */}
         <div id="checkout" className="rounded-xl bg-gradient-to-br from-gray-500/10 via-slate-400/5 to-gray-600/15 backdrop-blur-sm border border-white/5 ring-1 ring-white/10 shadow-soft p-6 sm:p-8 hover:shadow-glow transition-all duration-500 hover:ring-accent/30 text-center">
-          <LiquidButton size="xl" onClick={() => {
-            const tryShowWidget = () => {
-              if (typeof window !== 'undefined' && window.GC && window.GC.showWidget) {
-                window.GC.showWidget('1491870');
-                return true;
-              }
-              return false;
-            };
-            
-            if (!tryShowWidget()) {
-              // Ждем загрузки виджета до 3 секунд
-              let attempts = 0;
-              const maxAttempts = 30;
-              const checkInterval = setInterval(() => {
-                attempts++;
-                if (tryShowWidget() || attempts >= maxAttempts) {
-                  clearInterval(checkInterval);
-                  if (attempts >= maxAttempts) {
-                    console.error('GetCourse widget not available after waiting');
-                    alert('Виджет оплаты временно недоступен. Пожалуйста, попробуйте позже.');
-                  }
-                }
-              }, 100);
-            }
-          }} data-gc-pay="true">
+          <LiquidButton size="xl">
             <span>начать обучение</span>
           </LiquidButton>
         </div>
@@ -1101,14 +973,7 @@ export default function OfferPage() {
         
         {/* Финальная кнопка */}
         <div className="text-center mt-8 mb-8">
-          <LiquidButton size="xl" onClick={() => {
-            if (typeof window !== 'undefined' && window.GC && window.GC.showWidget) {
-              window.GC.showWidget('1491870');
-            } else {
-              console.error('GetCourse widget not available');
-              alert('Виджет оплаты временно недоступен. Пожалуйста, попробуйте позже.');
-            }
-          }} data-gc-pay="true">
+          <LiquidButton size="xl">
             <span>Начать — 1990 р.</span>
           </LiquidButton>
         </div>
@@ -1120,60 +985,33 @@ export default function OfferPage() {
       
       <Footer />
       
-      {/* GetCourse Widget */}
-      <Script
-        id="ebfd00e56b5d53e123c2e1baf410c8008ff7430e"
-        src="https://school.ismablog.ru/pl/lite/widget/script?id=1491870"
-        strategy="afterInteractive"
-        onLoad={() => {
-          console.log('GetCourse script loaded successfully');
-          // Проверяем доступность GC через задержку с повторными попытками
-          let attempts = 0;
-          const maxAttempts = 50; // 5 секунд
-          const checkGC = () => {
-            attempts++;
-            if (typeof window !== 'undefined' && (window as any).GC) {
-              console.log('GC object is available:', (window as any).GC);
-              (window as any).gcWidgetReady = true;
-              return;
-            }
-            
-            if (attempts < maxAttempts) {
-              setTimeout(checkGC, 100);
-            } else {
-              console.error('GC object not found after', maxAttempts * 100, 'ms');
-              console.log('Window object keys:', Object.keys(window));
-              // Создаем fallback GC объект
-              (window as any).GC = {
-                showWidget: function(widgetId: string) {
-                  console.log('Using fallback GC.showWidget for:', widgetId);
-                  // Открываем виджет в новом окне как fallback
-                  const widgetUrl = `https://school.ismablog.ru/pl/lite/widget?id=${widgetId}`;
-                  window.open(widgetUrl, '_blank', 'width=600,height=700,scrollbars=yes,resizable=yes');
-                }
-              };
-              (window as any).gcWidgetReady = true;
-              console.log('Fallback GC object created');
-            }
-          };
-          setTimeout(checkGC, 100);
-        }}
-        onError={(e) => {
-          console.error('Failed to load GetCourse script:', e);
-          // Создаем fallback GC объект при ошибке загрузки скрипта
-          if (typeof window !== 'undefined') {
-            (window as any).GC = {
-              showWidget: function(widgetId: string) {
-                console.log('Using error fallback GC.showWidget for:', widgetId);
-                const widgetUrl = `https://school.ismablog.ru/pl/lite/widget?id=${widgetId}`;
-                window.open(widgetUrl, '_blank', 'width=600,height=700,scrollbars=yes,resizable=yes');
-              }
-            };
-            (window as any).gcWidgetReady = true;
-            console.log('Error fallback GC object created');
-          }
-        }}
-      />
+      {/* Модальное окно */}
+      <div id="gc-modal" style={{display:'none', position:'fixed', inset:0, background:'rgba(0,0,0,.6)', zIndex:9999, alignItems:'center', justifyContent:'center'}}>
+        <div style={{width:'100%', maxWidth:'520px', background:'#fff', borderRadius:'12px', padding:'20px', position:'relative'}}>
+          <button onClick={() => {
+            const modal = document.getElementById('gc-modal');
+            if (modal) modal.style.display = 'none';
+          }}
+                  style={{position:'absolute', top:'10px', right:'10px', fontSize:'24px', background:'none', border:'none', cursor:'pointer'}}>×</button>
+          
+          {/* Виджет Геткурса */}
+          <Script id="ebfd00e56b5d53e123c2e1baf410c8008ff7430e"
+                  src="https://school.ismablog.ru/pl/lite/widget/script?id=1491870" />
+        </div>
+      </div>
+      
+      <Script id="modal-handler" strategy="afterInteractive">
+        {`
+          // Открывать поп-ап при клике на любую кнопку
+          document.addEventListener('click', function(e){
+            const btn = e.target.closest('button');
+            if (!btn) return;
+            e.preventDefault();
+            document.getElementById('gc-modal').style.display = 'flex';
+          });
+        `}
+      </Script>
+
     </main>
   );
 }

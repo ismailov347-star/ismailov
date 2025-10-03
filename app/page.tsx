@@ -570,12 +570,7 @@ export default function HomePage() {
 
       <Footer />
       
-      {/* GetCourse Widget */}
-      <Script
-        id="ebfd00e56b5d53e123c2e1baf410c8008ff7430e"
-        src="https://school.ismablog.ru/pl/lite/widget/script?id=1491870"
-        strategy="beforeInteractive"
-      />
+
     </main>
   );
 }
