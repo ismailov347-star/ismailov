@@ -229,7 +229,7 @@ export default function OfferPage() {
         // Создаем скрипт для виджета внутри контейнера
         const widgetScript = document.createElement('script');
         widgetScript.id = 'ebfd00e56b5d53e123c2e1baf410c8008ff7430e';
-        widgetScript.src = 'http://school.ismablog.ru/pl/lite/widget/script?id=1491870';
+        widgetScript.src = 'https://school.ismablog.ru/pl/lite/widget/script?id=1491870';
         
         // Добавляем обработчики событий для скрипта
         widgetScript.onload = () => {
