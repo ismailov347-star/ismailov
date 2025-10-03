@@ -162,34 +162,23 @@ function AccordionItem({ question, answer, isOpen, onToggle }: {
 }
 
 export default function OfferPage() {
-  const [open, setOpen] = useState(false);
-  const WIDGET_SRC = 'https://school.ismablog.ru/pl/lite/widget/script?id=1491870';
+  const [isPopupOpen, setIsPopupOpen] = useState(false);
 
-  // Открывать модалку по клику на ЛЮБУЮ кнопку (стили/разметку не трогаем)
+  const openPopup = () => setIsPopupOpen(true);
+  const closePopup = () => setIsPopupOpen(false);
+
   useEffect(() => {
-    const onClick = (e: MouseEvent) => {
-      const el = (e.target as HTMLElement).closest('button');
-      if (!el) return;
-      e.preventDefault();
-      setOpen(true);
+    const handleButtonClick = (e: MouseEvent) => {
+      const button = (e.target as HTMLElement).closest('button');
+      if (button) {
+        e.preventDefault();
+        openPopup();
+      }
     };
-    document.addEventListener('click', onClick);
-    return () => document.removeEventListener('click', onClick);
+
+    document.addEventListener('click', handleButtonClick);
+    return () => document.removeEventListener('click', handleButtonClick);
   }, []);
-
-  // Когда модалка открылась — один раз подгружаем скрипт в её контейнер
-  useEffect(() => {
-    if (!open) return;
-    const mount = document.getElementById('gc-widget-mount');
-    if (!mount) return;
-    if (mount.querySelector('script[data-gc="widget"]')) return; // уже подгружен
-
-    const s = document.createElement('script');
-    s.id = 'ebfd00e56b5d53e123c2e1baf410c8008ff7430e';
-    s.src = WIDGET_SRC;
-    s.setAttribute('data-gc', 'widget');
-    mount.appendChild(s);
-  }, [open]);
 
   // Адаптивные классы для иконок
   const iconSizeClasses = "w-4 h-4 xs:w-5 xs:h-5 sm:w-6 sm:h-6";
@@ -1015,44 +1004,59 @@ export default function OfferPage() {
       
       <Footer />
       
-      {/* МОДАЛКА */}
-      <div
-        style={{
-          position: 'fixed',
-          inset: 0,
-          display: open ? 'flex' : 'none',
-          alignItems: 'center',
-          justifyContent: 'center',
-          background: 'rgba(0,0,0,0.6)',
-          zIndex: 9999,
-          padding: 16
-        }}
-        aria-hidden={!open}
-      >
-        <div
+      {/* Поп-ап с GetCourse виджетом */}
+      {isPopupOpen && (
+        <div 
           style={{
+            position: 'fixed',
+            top: 0,
+            left: 0,
             width: '100%',
-            maxWidth: 520,
-            maxHeight: '90vh',
-            overflow: 'auto',
-            background: '#fff',
-            borderRadius: 12,
-            padding: 20,
-            position: 'relative'
+            height: '100%',
+            backgroundColor: 'rgba(0, 0, 0, 0.5)',
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center',
+            zIndex: 1000
           }}
         >
-          <button
-            onClick={() => setOpen(false)}
-            aria-label="Закрыть"
-            style={{ position: 'absolute', top: 10, right: 10, fontSize: 24, background: 'none', border: 0, cursor: 'pointer' }}
+          <div 
+            style={{
+              backgroundColor: 'white',
+              padding: '20px',
+              borderRadius: '8px',
+              position: 'relative',
+              maxWidth: '90%',
+              maxHeight: '90%',
+              overflow: 'auto'
+            }}
           >
-            ×
-          </button>
-
-          {/* Сюда добавляем скрипт при открытии */}
-          <div id="gc-widget-mount" />
+            <button 
+              onClick={closePopup}
+              style={{
+                position: 'absolute',
+                top: '10px',
+                right: '15px',
+                background: 'none',
+                border: 'none',
+                fontSize: '24px',
+                cursor: 'pointer',
+                color: '#999'
+              }}
+            >
+              ×
+            </button>
+            
+            {/* GetCourse виджет */}
+            <div id="gc-widget-container">
+              <script 
+                id="ebfd00e56b5d53e123c2e1baf410c8008ff7430e" 
+                src="https://school.ismablog.ru/pl/lite/widget/script?id=1491870"
+              ></script>
+            </div>
+          </div>
         </div>
-      </div>
+      )}
 
     </main>
     </>
