@@ -220,7 +220,9 @@ export default function OfferPage() {
         `;
         
         closeButton.onclick = () => {
-          document.body.removeChild(modal);
+          if (modal && modal.parentNode) {
+            modal.parentNode.removeChild(modal);
+          }
           console.log('✅ Модальное окно закрыто');
         };
         
@@ -249,7 +251,9 @@ export default function OfferPage() {
           const script = document.getElementById('ebfd00e56b5d53e123c2e1baf410c8008ff7430e');
           if (script) {
             const par = script.parentNode;
-            par.style.overflow = 'hidden';
+            if (par && par instanceof HTMLElement) {
+              par.style.overflow = 'hidden';
+            }
 
             const iframe = document.createElement('iframe');
             iframe.src = 'http://school.ismablog.ru/pl/lite/widget/widget'
@@ -276,7 +280,7 @@ export default function OfferPage() {
 
             const iframeId = iframe.id;
 
-            const gcEmbedOnMessage = function(e) {
+            const gcEmbedOnMessage = function(e: MessageEvent) {
               const insertedIframe = document.getElementById(iframeId);
               if (!insertedIframe) {
                 return;
@@ -287,11 +291,15 @@ export default function OfferPage() {
                   if (e.data.iframeName) {
                     const cuttedName = e.data.iframeName.split('&')[0];
                     if (cuttedName == iframe.name) {
-                      par.style.height = (e.data.height) + "px";
+                      if (par && par instanceof HTMLElement) {
+                        par.style.height = (e.data.height) + "px";
+                      }
                       insertedIframe.style.height = (e.data.height) + "px";
                     }
                   } else {
-                    par.style.height = (e.data.height) + "px";
+                    if (par && par instanceof HTMLElement) {
+                      par.style.height = (e.data.height) + "px";
+                    }
                     insertedIframe.style.height = (e.data.height) + "px";
                   }
                 }
@@ -306,8 +314,12 @@ export default function OfferPage() {
               window['onmessage'] = gcEmbedOnMessage;
             }
 
-            script.parentNode.insertBefore(iframe, script);
-            par.removeChild(script);
+            if (script.parentNode) {
+              script.parentNode.insertBefore(iframe, script);
+            }
+            if (par && par instanceof HTMLElement) {
+              par.removeChild(script);
+            }
             
             console.log('✅ GetCourse iframe создан принудительно');
           }
@@ -375,7 +387,9 @@ export default function OfferPage() {
         // Закрытие по клику на фон
         modal.addEventListener('click', (e) => {
           if (e.target === modal) {
-            document.body.removeChild(modal);
+            if (modal && modal.parentNode) {
+              modal.parentNode.removeChild(modal);
+            }
             console.log('✅ Модальное окно закрыто по клику на фон');
           }
         });
@@ -392,7 +406,9 @@ export default function OfferPage() {
       if (liquidButton) {
         console.log('🎯 Клик по целевой кнопке');
         event.preventDefault();
-        window.openGetCourseWidget();
+        if (window.openGetCourseWidget) {
+          window.openGetCourseWidget();
+        }
       }
     };
 
