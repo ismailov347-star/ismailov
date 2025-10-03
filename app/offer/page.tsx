@@ -1,6 +1,6 @@
-"use client";
+'use client';
 
-import { useState, useEffect } from "react";
+import { useEffect, useState } from 'react';
 import Script from "next/script";
 import { Squares } from "@/components/ui/squares-background";
 import TypewriterHeadline from "@/components/TypewriterHeadline";
@@ -162,6 +162,35 @@ function AccordionItem({ question, answer, isOpen, onToggle }: {
 }
 
 export default function OfferPage() {
+  const [open, setOpen] = useState(false);
+  const WIDGET_SRC = 'https://school.ismablog.ru/pl/lite/widget/script?id=1491870';
+
+  // Открывать модалку по клику на ЛЮБУЮ кнопку (стили/разметку не трогаем)
+  useEffect(() => {
+    const onClick = (e: MouseEvent) => {
+      const el = (e.target as HTMLElement).closest('button');
+      if (!el) return;
+      e.preventDefault();
+      setOpen(true);
+    };
+    document.addEventListener('click', onClick);
+    return () => document.removeEventListener('click', onClick);
+  }, []);
+
+  // Когда модалка открылась — один раз подгружаем скрипт в её контейнер
+  useEffect(() => {
+    if (!open) return;
+    const mount = document.getElementById('gc-widget-mount');
+    if (!mount) return;
+    if (mount.querySelector('script[data-gc="widget"]')) return; // уже подгружен
+
+    const s = document.createElement('script');
+    s.id = 'ebfd00e56b5d53e123c2e1baf410c8008ff7430e';
+    s.src = WIDGET_SRC;
+    s.setAttribute('data-gc', 'widget');
+    mount.appendChild(s);
+  }, [open]);
+
   // Адаптивные классы для иконок
   const iconSizeClasses = "w-4 h-4 xs:w-5 xs:h-5 sm:w-6 sm:h-6";
   const headingIconClasses = "w-5 h-5 xs:w-6 xs:h-6 sm:w-7 sm:h-7";
@@ -200,6 +229,7 @@ export default function OfferPage() {
   ];
 
   return (
+    <>
     <main className="relative">
       <Squares 
         className="fixed inset-0 w-full h-full pointer-events-none -z-10" 
@@ -985,33 +1015,46 @@ export default function OfferPage() {
       
       <Footer />
       
-      {/* Модальное окно */}
-      <div id="gc-modal" style={{display:'none', position:'fixed', inset:0, background:'rgba(0,0,0,.6)', zIndex:9999, alignItems:'center', justifyContent:'center'}}>
-        <div style={{width:'100%', maxWidth:'520px', background:'#fff', borderRadius:'12px', padding:'20px', position:'relative'}}>
-          <button onClick={() => {
-            const modal = document.getElementById('gc-modal');
-            if (modal) modal.style.display = 'none';
+      {/* МОДАЛКА */}
+      <div
+        style={{
+          position: 'fixed',
+          inset: 0,
+          display: open ? 'flex' : 'none',
+          alignItems: 'center',
+          justifyContent: 'center',
+          background: 'rgba(0,0,0,0.6)',
+          zIndex: 9999,
+          padding: 16
+        }}
+        aria-hidden={!open}
+      >
+        <div
+          style={{
+            width: '100%',
+            maxWidth: 520,
+            maxHeight: '90vh',
+            overflow: 'auto',
+            background: '#fff',
+            borderRadius: 12,
+            padding: 20,
+            position: 'relative'
           }}
-                  style={{position:'absolute', top:'10px', right:'10px', fontSize:'24px', background:'none', border:'none', cursor:'pointer'}}>×</button>
-          
-          {/* Виджет Геткурса */}
-          <Script id="ebfd00e56b5d53e123c2e1baf410c8008ff7430e"
-                  src="https://school.ismablog.ru/pl/lite/widget/script?id=1491870" />
+        >
+          <button
+            onClick={() => setOpen(false)}
+            aria-label="Закрыть"
+            style={{ position: 'absolute', top: 10, right: 10, fontSize: 24, background: 'none', border: 0, cursor: 'pointer' }}
+          >
+            ×
+          </button>
+
+          {/* Сюда добавляем скрипт при открытии */}
+          <div id="gc-widget-mount" />
         </div>
       </div>
-      
-      <Script id="modal-handler" strategy="afterInteractive">
-        {`
-          // Открывать поп-ап при клике на любую кнопку
-          document.addEventListener('click', function(e){
-            const btn = e.target.closest('button');
-            if (!btn) return;
-            e.preventDefault();
-            document.getElementById('gc-modal').style.display = 'flex';
-          });
-        `}
-      </Script>
 
     </main>
+    </>
   );
 }
