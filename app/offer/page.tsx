@@ -1,10 +1,15 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import Script from "next/script";
+
 import { Squares } from "@/components/ui/squares-background";
 import TypewriterHeadline from "@/components/TypewriterHeadline";
 import Footer from "@/components/Footer";
+import { LiquidButton } from "@/app/components/ui/liquid-glass-button";
+
+
+
+
 
 
 // SVG Icons Components
@@ -125,7 +130,7 @@ import LoadingScreen from "@/components/LoadingScreen";
 import RevealOnScroll from "@/components/RevealOnScroll";
 import CinematicHeadline from "@/components/CinematicHeadline";
 import ScrollProgressBar from "@/components/ScrollProgressBar";
-import { LiquidButton } from "../components/ui/liquid-glass-button";
+
 
 // Компонент аккордеона
 function AccordionItem({ question, answer, isOpen, onToggle }: {
@@ -162,22 +167,247 @@ function AccordionItem({ question, answer, isOpen, onToggle }: {
 }
 
 export default function OfferPage() {
-  const [isPopupOpen, setIsPopupOpen] = useState(false);
-
-  const openPopup = () => setIsPopupOpen(true);
-  const closePopup = () => setIsPopupOpen(false);
-
   useEffect(() => {
-    const handleButtonClick = (e: MouseEvent) => {
-      const button = (e.target as HTMLElement).closest('button');
-      if (button) {
-        e.preventDefault();
-        openPopup();
+    console.log('🔧 Инициализация GetCourse iframe виджета...');
+
+    // Создаем функцию для открытия виджета через создание нового скрипта
+    window.openGetCourseWidget = () => {
+      console.log('🚀 Открываем GetCourse виджет...');
+      
+      // Создаем модальное окно для виджета
+      let modal = document.getElementById('getcourse-modal');
+      if (!modal) {
+        modal = document.createElement('div');
+        modal.id = 'getcourse-modal';
+        modal.style.cssText = `
+          position: fixed;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          background: rgba(0, 0, 0, 0.8);
+          z-index: 10000;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          padding: 20px;
+          box-sizing: border-box;
+        `;
+        
+        const container = document.createElement('div');
+        container.style.cssText = `
+          background: white;
+          border-radius: 8px;
+          width: 100%;
+          max-width: 600px;
+          max-height: 90vh;
+          overflow: hidden;
+          position: relative;
+        `;
+        
+        const closeButton = document.createElement('button');
+        closeButton.innerHTML = '×';
+        closeButton.style.cssText = `
+          position: absolute;
+          top: 10px;
+          right: 15px;
+          background: none;
+          border: none;
+          font-size: 24px;
+          cursor: pointer;
+          z-index: 10001;
+          color: #666;
+        `;
+        
+        closeButton.onclick = () => {
+          document.body.removeChild(modal);
+          console.log('✅ Модальное окно закрыто');
+        };
+        
+        // Создаем скрипт для виджета внутри контейнера
+        const widgetScript = document.createElement('script');
+        widgetScript.id = 'ebfd00e56b5d53e123c2e1baf410c8008ff7430e';
+        widgetScript.src = 'http://school.ismablog.ru/pl/lite/widget/script?id=1491870';
+        
+        // Добавляем обработчики событий для скрипта
+        widgetScript.onload = () => {
+          console.log('✅ GetCourse скрипт успешно загружен');
+          console.log('🔍 Проверяем доступные объекты в window после загрузки скрипта...');
+          
+          // Проверяем все возможные объекты GetCourse
+          const gcKeys = Object.keys(window).filter(key => 
+            key.toLowerCase().includes('getcourse') || 
+            key.toLowerCase().includes('gc') ||
+            key.toLowerCase().includes('widget')
+          );
+          console.log('🔑 Найденные ключи, связанные с GetCourse:', gcKeys);
+          
+          // Принудительно запускаем код GetCourse, так как DOMContentLoaded уже произошел
+          console.log('🚀 Принудительно запускаем GetCourse код...');
+          
+          // Эмулируем код из GetCourse скрипта
+          const script = document.getElementById('ebfd00e56b5d53e123c2e1baf410c8008ff7430e');
+          if (script) {
+            const par = script.parentNode;
+            par.style.overflow = 'hidden';
+
+            const iframe = document.createElement('iframe');
+            iframe.src = 'http://school.ismablog.ru/pl/lite/widget/widget'
+              + "?" + window.location.search.substring(1)
+              + "&id=1491870"
+              + "&ref=" + encodeURIComponent(document.referrer)
+              + "&loc=" + encodeURIComponent(document.location.href);
+
+            try {
+              if (window.clrtQueryData) {
+                iframe.src += "&clrtQueryData=" + encodeURIComponent(JSON.stringify(window.clrtQueryData));
+              }
+            } catch(e) {}
+
+            iframe.dataset.accountId = '912144';
+            iframe.style.width = '100%';
+            iframe.style.height = '0px';
+            iframe.style.border = 'none';
+            iframe.style.overflow = 'hidden';
+            iframe.setAttribute('allowfullscreen', 'allowfullscreen');
+            iframe.className = '149';
+            iframe.id = '43fac3d04dd5597f8b4391cfbf928a1c99e903d9' + '_' + iframe.className;
+            iframe.name = iframe.className;
+
+            const iframeId = iframe.id;
+
+            const gcEmbedOnMessage = function(e) {
+              const insertedIframe = document.getElementById(iframeId);
+              if (!insertedIframe) {
+                return;
+              }
+
+              if (e.data.uniqName == 'ebfd00e56b5d53e123c2e1baf410c8008ff7430e') {
+                if (e.data.height) {
+                  if (e.data.iframeName) {
+                    const cuttedName = e.data.iframeName.split('&')[0];
+                    if (cuttedName == iframe.name) {
+                      par.style.height = (e.data.height) + "px";
+                      insertedIframe.style.height = (e.data.height) + "px";
+                    }
+                  } else {
+                    par.style.height = (e.data.height) + "px";
+                    insertedIframe.style.height = (e.data.height) + "px";
+                  }
+                }
+              }
+            };
+
+            if (window.addEventListener) {
+              window.addEventListener("message", gcEmbedOnMessage, false);
+            } else if (window.attachEvent) {
+              window.attachEvent('onmessage', gcEmbedOnMessage);
+            } else {
+              window['onmessage'] = gcEmbedOnMessage;
+            }
+
+            script.parentNode.insertBefore(iframe, script);
+            par.removeChild(script);
+            
+            console.log('✅ GetCourse iframe создан принудительно');
+          }
+          
+          // Проверяем iframe
+          setTimeout(() => {
+            const iframes = container.querySelectorAll('iframe');
+            console.log('📱 Найдено iframe элементов:', iframes.length);
+            iframes.forEach((iframe, index) => {
+              console.log(`📱 Iframe ${index + 1}:`, {
+                src: iframe.src,
+                id: iframe.id,
+                className: iframe.className,
+                style: iframe.style.cssText
+              });
+            });
+            
+            // Если iframe не найден, проверим еще раз через 3 секунды
+            if (iframes.length === 0) {
+              setTimeout(() => {
+                const iframes2 = container.querySelectorAll('iframe');
+                console.log('📱 Повторная проверка - найдено iframe элементов:', iframes2.length);
+                iframes2.forEach((iframe, index) => {
+                  console.log(`📱 Iframe ${index + 1} (повторная проверка):`, {
+                    src: iframe.src,
+                    id: iframe.id,
+                    className: iframe.className,
+                    style: iframe.style.cssText
+                  });
+                });
+              }, 3000);
+            }
+          }, 1000);
+        };
+        
+        widgetScript.onerror = (error) => {
+          console.error('❌ Ошибка загрузки GetCourse скрипта:', error);
+          console.error('🌐 URL скрипта:', widgetScript.src);
+          console.error('🔒 Возможная причина: HTTPS требуется для localhost');
+          
+          // Показываем сообщение об ошибке пользователю
+          const errorDiv = document.createElement('div');
+          errorDiv.style.cssText = `
+            padding: 20px;
+            text-align: center;
+            color: #666;
+            font-family: Arial, sans-serif;
+          `;
+          errorDiv.innerHTML = `
+            <h3>Ошибка загрузки виджета</h3>
+            <p>Виджет GetCourse не может загрузиться на localhost.</p>
+            <p>Попробуйте открыть сайт через HTTPS или на production сервере.</p>
+          `;
+          container.appendChild(errorDiv);
+        };
+        
+        container.appendChild(closeButton);
+        container.appendChild(widgetScript);
+        modal.appendChild(container);
+        document.body.appendChild(modal);
+        
+        console.log('✅ Модальное окно с виджетом создано');
+        console.log('⏳ Ожидаем загрузку скрипта GetCourse...');
+        
+        // Закрытие по клику на фон
+        modal.addEventListener('click', (e) => {
+          if (e.target === modal) {
+            document.body.removeChild(modal);
+            console.log('✅ Модальное окно закрыто по клику на фон');
+          }
+        });
+      } else {
+        modal.style.display = 'flex';
+        console.log('✅ Модальное окно показано');
       }
     };
 
-    document.addEventListener('click', handleButtonClick);
-    return () => document.removeEventListener('click', handleButtonClick);
+    const handleDocumentClick = (event: MouseEvent) => {
+      const target = event.target as Element;
+      const liquidButton = target.closest('.liquid-button-target');
+      
+      if (liquidButton) {
+        console.log('🎯 Клик по целевой кнопке');
+        event.preventDefault();
+        window.openGetCourseWidget();
+      }
+    };
+
+    document.addEventListener('click', handleDocumentClick);
+
+    return () => {
+      document.removeEventListener('click', handleDocumentClick);
+      delete window.openGetCourseWidget;
+      
+      // Удаляем модальное окно при размонтировании
+      const modal = document.getElementById('getcourse-modal');
+      if (modal) {
+        document.body.removeChild(modal);
+      }
+    };
   }, []);
 
   // Адаптивные классы для иконок
@@ -186,8 +416,6 @@ export default function OfferPage() {
   const listIconClasses = "w-3 h-3 xs:w-4 xs:h-4 sm:w-4 sm:h-4";
   const [isLoading, setIsLoading] = useState(true);
   const [openAccordion, setOpenAccordion] = useState<number | null>(null);
-
-
 
   const toggleAccordion = (index: number) => {
     setOpenAccordion(openAccordion === index ? null : index);
@@ -213,7 +441,7 @@ export default function OfferPage() {
     {
       question: "А если я только начинаю?",
       answer: "Это плюс. Нет лишних ожиданий — есть чистый старт. Живой, честный путь сильнее идеального «когда-нибудь»."
-    },
+    }
 
   ];
 
@@ -323,7 +551,7 @@ export default function OfferPage() {
 
         {/* CTA 1 */}
         <div className="text-center">
-          <LiquidButton size="xl">
+          <LiquidButton size="xl" className="liquid-button-target">
             Присоединиться сейчас
           </LiquidButton>
         </div>
@@ -706,7 +934,7 @@ export default function OfferPage() {
 
         {/* CTA 2 */}
         <div className="text-center">
-          <LiquidButton size="lg">
+          <LiquidButton size="lg" className="liquid-button-target">
             <span>Хочу доступ к системе</span>
           </LiquidButton>
         </div>
@@ -879,7 +1107,7 @@ export default function OfferPage() {
 
         {/* CTA 3 */}
         <div className="text-center">
-          <LiquidButton size="xl">
+          <LiquidButton size="xl" className="liquid-button-target">
             <span>Начать сегодня — 1990 р.</span>
           </LiquidButton>
         </div>
@@ -898,7 +1126,7 @@ export default function OfferPage() {
           
           {/* Кнопка "Занять место" */}
           <div className="mt-6 flex justify-center">
-            <LiquidButton size="xl" className="inline-flex items-center gap-3">
+            <LiquidButton size="xl" className="liquid-button-target inline-flex items-center gap-3">
               <span>Занять место</span>
             </LiquidButton>
           </div>
@@ -925,7 +1153,7 @@ export default function OfferPage() {
 
         {/* Блок оплаты */}
         <div id="checkout" className="rounded-xl bg-gradient-to-br from-gray-500/10 via-slate-400/5 to-gray-600/15 backdrop-blur-sm border border-white/5 ring-1 ring-white/10 shadow-soft p-6 sm:p-8 hover:shadow-glow transition-all duration-500 hover:ring-accent/30 text-center">
-          <LiquidButton size="xl">
+          <LiquidButton size="xl" className="liquid-button-target">
             <span>начать обучение</span>
           </LiquidButton>
         </div>
@@ -992,7 +1220,7 @@ export default function OfferPage() {
         
         {/* Финальная кнопка */}
         <div className="text-center mt-8 mb-8">
-          <LiquidButton size="xl">
+          <LiquidButton size="xl" className="liquid-button-target">
             <span>Начать — 1990 р.</span>
           </LiquidButton>
         </div>
@@ -1004,59 +1232,9 @@ export default function OfferPage() {
       
       <Footer />
       
-      {/* Поп-ап с GetCourse виджетом */}
-      {isPopupOpen && (
-        <div 
-          style={{
-            position: 'fixed',
-            top: 0,
-            left: 0,
-            width: '100%',
-            height: '100%',
-            backgroundColor: 'rgba(0, 0, 0, 0.5)',
-            display: 'flex',
-            justifyContent: 'center',
-            alignItems: 'center',
-            zIndex: 1000
-          }}
-        >
-          <div 
-            style={{
-              backgroundColor: 'white',
-              padding: '20px',
-              borderRadius: '8px',
-              position: 'relative',
-              maxWidth: '90%',
-              maxHeight: '90%',
-              overflow: 'auto'
-            }}
-          >
-            <button 
-              onClick={closePopup}
-              style={{
-                position: 'absolute',
-                top: '10px',
-                right: '15px',
-                background: 'none',
-                border: 'none',
-                fontSize: '24px',
-                cursor: 'pointer',
-                color: '#999'
-              }}
-            >
-              ×
-            </button>
-            
-            {/* GetCourse виджет */}
-            <div id="gc-widget-container">
-              <script 
-                id="ebfd00e56b5d53e123c2e1baf410c8008ff7430e" 
-                src="https://school.ismablog.ru/pl/lite/widget/script?id=1491870"
-              ></script>
-            </div>
-          </div>
-        </div>
-      )}
+      
+      
+      {/* Модальное окно формы */}
 
     </main>
     </>
